@@ -1,0 +1,151 @@
+% =========================================================================
+%  RAM&A 2026 -- International Conference on Recent Advances in
+%  Mathematics & Applications
+%  Abstract Submission Template (LaTeX)
+%
+%  Instructions:
+%   1. Replace all bracketed placeholder text below.
+%   2. Keep the abstract to 250--300 words, plain text (no citations,
+%      footnotes, or displayed equations inside the abstract itself).
+%   3. Compile with pdfLaTeX. Save/submit your PDF as
+%      Lastname_AbstractRAMA2026.pdf together with this .tex source.
+%   4. Maximum length: 2 pages.
+% =========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{times}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{authblk}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black]{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+% ---- RAM&A theme colours -------------------------------------------------
+\definecolor{ramaink}{HTML}{14213D}
+\definecolor{ramabrass}{HTML}{B08D45}
+\definecolor{ramasoft}{HTML}{5B5747}
+
+% ---- Header / footer ------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[L]{\small\bfseries\color{ramaink} RAM\&A 2026}
+\fancyhead[R]{\small\color{ramasoft} Abstract Submission Template}
+\fancyfoot[L]{\small\color{ramasoft} Department of Mathematics, NSUT New Delhi}
+\fancyfoot[R]{\small\color{ramasoft} rama2026@nsut.ac.in}
+
+% ---- Section styling --------------------------------------------------
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{ramaink}}
+  {\thesection}{0.6em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{ramabrass}}
+  {\thesubsection}{0.6em}{}
+
+\newcommand{\fieldlabel}[1]{\textbf{\small\color{ramabrass}\MakeUppercase{#1}}\\}
+\newcommand{\placeholder}[1]{\textit{\color{gray}#1}}
+
+\title{\color{ramabrass}\normalsize International Conference on\\[4pt]
+       \color{ramaink}\Huge\bfseries Recent Advances in Mathematics \& Applications\\[10pt]
+       \normalsize\normalfont\color{black}[Enter the full title of your paper here --- Title Case, no more than 20 words]}
+
+\author[1]{[Corresponding Author Full Name]}
+\author[2]{[Co-Author Full Name, if any]}
+\affil[1]{[Department, Institution, City, Country]}
+\affil[2]{[Department, Institution, City, Country]}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\vspace{-1.2cm}
+\noindent\rule{\linewidth}{0.6pt}
+
+\vspace{0.3cm}
+\noindent\textit{\small\color{ramasoft}
+Please replace every bracketed placeholder below. Keep the document to a
+maximum of two pages. Save your file as
+\texttt{Lastname\_AbstractRAMA2026.pdf} and submit via the conference
+portal or by email to \texttt{rama2026@nsut.ac.in}.}
+
+\vspace{0.4cm}
+
+% ---------------------------------------------------------------------
+\section*{1. \; Author Details}
+
+\fieldlabel{Corresponding Author} \placeholder{Full name} \\[6pt]
+\fieldlabel{Co-Author(s)} \placeholder{Full name(s), if any} \\[6pt]
+\fieldlabel{Affiliation(s)} \placeholder{Department, Institution, City, Country} \\[6pt]
+\fieldlabel{Email Address} \placeholder{name@institution.edu} \\[6pt]
+\fieldlabel{Contact Number} \placeholder{+00 00000 00000} \\[6pt]
+\fieldlabel{Category} \placeholder{Faculty / Postdoc / PhD Scholar / Student (UG/PG) / Industry} \\[6pt]
+\fieldlabel{Presentation Type} \placeholder{Paper / Oral or Poster}
+
+\vspace{0.3cm}
+\noindent\rule{\linewidth}{0.4pt}
+
+% ---------------------------------------------------------------------
+\section*{2. \; Submission Topic}
+
+\noindent\small\color{ramasoft}
+Select the single closest-fitting topic: Pure Mathematics
+\textperiodcentered\ Applied \& Computational Mathematics
+\textperiodcentered\ Probability, Statistics \& Mathematical Sciences
+\textperiodcentered\ Information Security \& Emerging Technologies
+\textperiodcentered\ Artificial Intelligence \& Interdisciplinary
+Applications.
+\normalcolor\normalsize
+
+\vspace{0.2cm}
+\noindent\placeholder{[Enter chosen topic here]}
+
+\vspace{0.3cm}
+\noindent\rule{\linewidth}{0.4pt}
+
+% ---------------------------------------------------------------------
+\section*{3. \; Abstract}
+
+\noindent\small\color{ramasoft}
+250--300 words. State the problem, method, and principal results in
+plain language. Do not include citations, footnotes, or displayed
+equations in this section.
+\normalcolor\normalsize
+
+\vspace{0.2cm}
+\noindent\placeholder{[Begin your abstract here...]}
+
+\vspace{3.2cm}
+
+\noindent\rule{\linewidth}{0.4pt}
+
+% ---------------------------------------------------------------------
+\section*{4. \; Keywords}
+
+\noindent\small\color{ramasoft}List 3--6 keywords, separated by commas.\normalcolor\normalsize
+
+\vspace{0.2cm}
+\noindent\placeholder{[keyword one, keyword two, keyword three, ...]}
+
+\vspace{0.3cm}
+\noindent\rule{\linewidth}{0.4pt}
+
+% ---------------------------------------------------------------------
+\section*{5. \; Formatting Notes}
+
+\begin{itemize}\setlength\itemsep{2pt}
+  \item Font: 11pt (this template uses Times); single-spaced.
+  \item Margins: 1 inch (2.54cm) on all sides, A4 paper size.
+  \item Equations: number displayed equations consecutively on the
+        right, e.g.\ \(E = mc^2\) \hfill (1)
+  \item References: numbered in order of appearance, in a short
+        References list at the end (not required for the abstract
+        stage).
+  \item File name: \texttt{Lastname\_AbstractRAMA2026.pdf}
+\end{itemize}
+
+\end{document}
