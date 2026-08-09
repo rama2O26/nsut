@@ -1578,6 +1578,58 @@
 </footer>
 
 <script>
+  // Dynamically size the fixed top-banner + nav stack, so nav never
+  // overlaps the banner regardless of how the university name wraps
+  // on a given screen width (fixes the mobile overlap bug).
+  (function () {
+    const banner = document.querySelector('.top-banner');
+    const nav = document.querySelector('header.site-nav');
+    const navLinks = document.querySelector('nav.links');
+    const hero = document.querySelector('.hero');
+    if (!banner || !nav) return;
+
+    function isMobile() { return window.innerWidth <= 860; }
+
+    function apply() {
+      const bannerH = banner.offsetHeight;
+      nav.style.top = bannerH + 'px';
+      const navH = nav.offsetHeight;
+      const totalH = bannerH + navH;
+
+      document.documentElement.style.setProperty('--fixed-bars-h', totalH + 'px');
+
+      if (hero) {
+        const extra = isMobile() ? 40 : 60;
+        hero.style.paddingTop = (totalH + extra) + 'px';
+      }
+      if (navLinks) {
+        if (isMobile()) {
+          navLinks.style.top = navH + 'px';
+          navLinks.style.height = 'calc(100vh - ' + totalH + 'px)';
+        } else {
+          navLinks.style.top = '';
+          navLinks.style.height = '';
+        }
+      }
+
+      document.querySelectorAll('section[id]').forEach(function (s) {
+        s.style.scrollMarginTop = (totalH + 14) + 'px';
+      });
+    }
+
+    apply();
+    window.addEventListener('resize', apply);
+    window.addEventListener('orientationchange', function () {
+      setTimeout(apply, 150);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(apply);
+    }
+    // Safety re-check shortly after load in case webfonts/images shift layout
+    window.addEventListener('load', function () { setTimeout(apply, 200); });
+  })();
+</script>
+<script>
   // Hero background — floating mathematical symbols
   (function () {
     const canvas = document.getElementById('heroCanvas');
