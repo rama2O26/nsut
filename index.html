@@ -54,7 +54,7 @@
     text-transform:uppercase;
     color:var(--brass);
   }
-  section{padding:96px 0; scroll-margin-top:192px;}
+  section{padding:96px 0; scroll-margin-top:206px;}
 
   /* ---------- NAV ---------- */
   /* ---------- TOP BANNER ---------- */
@@ -64,14 +64,14 @@
     border-bottom:2px solid var(--brass);
   }
   .top-banner-inner{
-    max-width:var(--max); margin:0 auto; padding:22px 24px;
+    max-width:var(--max); margin:0 auto; padding:18px 24px;
     display:flex; align-items:center; gap:22px;
   }
   .top-banner-logos{display:flex; align-items:center; gap:18px; flex-shrink:0;}
   .top-banner-logos img{display:block;}
-  .tb-logo-rama{height:64px; width:auto;}
-  .tb-logo-nsut{height:74px; width:auto;}
-  .top-banner-divider{width:1px; height:58px; background:var(--brass); opacity:0.4; flex-shrink:0;}
+  .tb-logo-rama{height:96px; width:auto;}
+  .tb-logo-nsut{height:66px; width:auto;}
+  .top-banner-divider{width:1px; height:74px; background:var(--brass); opacity:0.4; flex-shrink:0;}
   .top-banner-text{display:flex; flex-direction:column; justify-content:center; line-height:1.3;}
   .tb-uni-name{
     font-family:'Fraunces', serif; font-weight:600; font-size:24px;
@@ -83,7 +83,7 @@
     margin-top:4px;
   }
   header.site-nav{
-    position:fixed; top:120px; left:0; right:0; z-index:50;
+    position:fixed; top:134px; left:0; right:0; z-index:50;
     background:rgba(20,33,61,0.7);
     backdrop-filter:blur(10px);
     border-bottom:1px solid transparent;
@@ -146,7 +146,7 @@
     position:relative;
     background:var(--ink);
     color:var(--vellum);
-    padding:260px 0 140px;
+    padding:274px 0 140px;
     overflow:hidden;
     border-bottom:1px solid var(--ink-line);
   }
@@ -209,13 +209,14 @@
 
   .hero-meta{
     margin-top:44px;
-    display:flex; flex-wrap:wrap; gap:0;
+    display:flex; flex-wrap:nowrap; gap:0;
     border-top:1px solid var(--ink-line);
     padding-top:28px;
   }
   .hero-meta .item{
-    padding-right:40px; margin-right:40px;
+    padding-right:28px; margin-right:28px;
     border-right:1px solid var(--ink-line);
+    white-space:nowrap;
   }
   .hero-meta .item:last-child{border-right:none;}
   .hero-meta .item .label{
@@ -289,6 +290,26 @@
     color:var(--vellum);
   }
   .btn-ghost:hover{border-color:var(--brass-light); color:var(--brass-light); transform:translateY(-2px);}
+
+  .hero-cta-block{margin:36px 0 6px;}
+  .hero-cta-row{display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  .btn-hero-cta{
+    font-size:15.5px; padding:19px 36px;
+    box-shadow:0 10px 34px rgba(176,141,69,0.38), 0 0 0 1px rgba(212,185,106,0.25);
+  }
+  .btn-hero-cta:hover{box-shadow:0 12px 38px rgba(176,141,69,0.48), 0 0 0 1px rgba(212,185,106,0.35);}
+  .hero-cta-secondary{
+    font-family:'IBM Plex Mono', monospace; font-size:13px;
+    color:var(--vellum-2); text-decoration:underline;
+    text-underline-offset:4px; text-decoration-color:rgba(234,228,210,0.4);
+    letter-spacing:.02em; transition:color .18s ease;
+  }
+  .hero-cta-secondary:hover{color:var(--brass-light); text-decoration-color:var(--brass-light);}
+  .hero-cta-note{
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--brass-light); opacity:.85;
+  }
 
   /* ---------- SECTION HEADERS ---------- */
   .section-head{
@@ -520,6 +541,23 @@
     color:var(--paper-text-soft);
     margin:0;
   }
+  .earlybird-note{
+    background:var(--vellum-2);
+    border-left:3px solid var(--brass);
+    padding:22px 28px;
+    margin-bottom:40px;
+  }
+  .eb-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--brass); font-weight:600;
+    margin-bottom:8px;
+  }
+  .earlybird-note p{
+    margin:0; font-size:16px; line-height:1.55; color:var(--paper-text);
+  }
+  .earlybird-note p b{color:var(--ink);}
   .day-tab{
     font-family:'IBM Plex Mono', monospace;
     font-size:14.5px; letter-spacing:.05em; text-transform:uppercase;
@@ -785,14 +823,14 @@
   }
   @media (max-width: 860px){
     .top-banner-inner{padding:14px 20px; gap:14px;}
-    .tb-logo-rama{height:46px;}
-    .tb-logo-nsut{height:54px;}
+    .tb-logo-rama{height:62px;}
+    .tb-logo-nsut{height:44px;}
     .tb-uni-name{font-size:16px;}
     .tb-dept{font-size:10.5px;}
-    .top-banner-divider{height:40px;}
-    header.site-nav{top:89px;}
+    .top-banner-divider{height:50px;}
+    header.site-nav{top:92px;}
     nav.links{
-      position:fixed; top:73px; left:0; right:0; height:calc(100vh - 162px);
+      position:fixed; top:73px; left:0; right:0; height:calc(100vh - 165px);
       background:var(--ink);
       flex-direction:column; align-items:flex-start;
       padding:32px; gap:26px;
@@ -802,15 +840,16 @@
     }
     nav.links.open{transform:translateX(0);}
     .menu-toggle{display:block;}
-    .hero{padding:209px 0 90px;}
-    section{scroll-margin-top:162px;}
+    .hero{padding:212px 0 90px;}
+    section{scroll-margin-top:165px;}
     .hero-logos{margin-bottom:24px; gap:12px;}
     .hero-logo-chip img{height:46px;}
     .hero-logo-plain{height:60px;}
     .countdown{gap:22px; margin-top:38px; padding-top:22px;}
     .countdown .num{font-size:1.6rem;}
     .countdown-until{width:100%; order:5;}
-    .hero-meta .item{padding-right:24px; margin-right:24px;}
+    .hero-meta{flex-wrap:wrap;}
+    .hero-meta .item{padding-right:24px; margin-right:24px; white-space:normal;}
     .about-grid, .venue-grid{grid-template-columns:1fr;}
     .awards-grid{grid-template-columns:1fr;}
     .attractions-grid{grid-template-columns:1fr;}
@@ -893,6 +932,14 @@
       <span class="big-line">Recent Advances in Mathematics &amp; Applications</span>
     </h1>
     <div class="acronym"><b>RAM&amp;A 2026</b> — three days of talks, proofs, and new collaborations</div>
+
+    <div class="hero-cta-block">
+      <div class="hero-cta-row">
+        <a href="https://forms.gle/mqaEwPydAbSZgJkb8" target="_blank" rel="noopener" class="btn btn-primary btn-hero-cta">Submit Your Abstract</a>
+        <a href="#register" class="hero-cta-secondary">View registration details →</a>
+      </div>
+      <div class="hero-cta-note">Abstract submission is open now — deadline Oct 31, 2026</div>
+    </div>
 
     <div class="hero-meta">
       <div class="item">
@@ -1185,6 +1232,11 @@
         <h2>Registration</h2>
         <p>Fees are categorised by delegate type and presentation format.</p>
       </div>
+    </div>
+
+    <div class="earlybird-note reveal">
+      <span class="eb-tag">Early-Bird Pricing</span>
+      <p>The fees listed below are Early-Bird rates, valid through <b>November 30, 2026</b>. Register before this date to lock in these rates — fees are subject to increase afterward.</p>
     </div>
 
     <h3 class="sub-heading">Indian Delegates</h3>
