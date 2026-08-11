@@ -804,6 +804,15 @@
   .footer-bottom nav a:hover{color:var(--brass-light); opacity:1;}
 
   /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 640px){
+    .speaker-grid{grid-template-columns:repeat(2, 1fr); gap:22px 14px;}
+  }
+  @media (max-width: 400px){
+    .speaker-grid{gap:18px 10px;}
+    .speaker-card h4{font-size:14px;}
+    .speaker-card .affil{font-size:11px;}
+    .speaker-card .talk{font-size:11.5px;}
+  }
   @media (max-width: 980px){
     .attractions-grid{grid-template-columns:repeat(2, 1fr);}
   }
