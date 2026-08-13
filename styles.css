@@ -958,6 +958,61 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
     #heroCanvas{display:none;}
   }
 
+
+/* ---------- CONTACT ---------- */
+nav.links .nav-contact{
+  display:inline-flex; align-items:center; gap:7px;
+  white-space:nowrap;
+}
+.nav-contact-icon{
+  font-size:14px; line-height:1;
+  color:var(--brass-light);
+  text-transform:none;
+}
+.contact-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  max-width:980px;
+}
+.contact-card{
+  display:flex; align-items:flex-start; gap:20px;
+  padding:30px 32px;
+  background:rgba(255,255,255,.28);
+  border:1px solid var(--rule);
+  min-height:190px;
+}
+.contact-card:hover{border-color:rgba(176,141,69,.55);}
+.contact-icon{
+  flex:0 0 auto; width:44px; height:44px;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--brass);
+  color:var(--brass);
+  font-size:20px;
+}
+.contact-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--paper-text-soft); margin-bottom:10px;
+}
+.contact-email{
+  display:inline-block; color:var(--ink); font-family:'IBM Plex Mono', monospace;
+  font-size:18px; font-weight:500; text-decoration:underline;
+  text-decoration-color:var(--brass); text-underline-offset:4px;
+  margin-bottom:16px;
+}
+.contact-email:hover,.contact-person a:hover{color:var(--brass);}
+.contact-card p{color:var(--paper-text-soft); font-size:16px; line-height:1.6; margin:0;}
+.contact-person{display:flex; flex-direction:column; gap:4px; margin-bottom:18px;}
+.contact-person:last-child{margin-bottom:0;}
+.contact-person strong{font-family:'Fraunces', serif; font-size:20px; font-weight:600; color:var(--paper-text);}
+.contact-person a{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--brass); text-decoration:underline; text-underline-offset:3px;}
+
+@media (max-width:860px){
+  .contact-grid{grid-template-columns:1fr;}
+  .contact-card{padding:24px; min-height:0;}
+  .contact-email{font-size:15px;}
+  .contact-person strong{font-size:18px;}
+}
+
   /* ---------- SCROLL REVEAL ---------- */
   .reveal{
     opacity:0;

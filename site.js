@@ -158,7 +158,8 @@
     'abstract-submission.html': 'abstract',
     'register.html': 'register',
     'venue.html': 'venue',
-    'attractions.html': 'sightseeing'
+    'attractions.html': 'sightseeing',
+    'contact.html': 'contact'
   };
   const currentPage = pageMap[currentFile] || 'home';
   if (navLinks) {

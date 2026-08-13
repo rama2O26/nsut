@@ -21,3 +21,6 @@ Keep all HTML files, styles.css, site.js, and the abstract template files in the
 
 
 Latest fixes: navigation is fully opaque (no backdrop blur), and all inner-page content is offset below the fixed banner/navigation so original page headings are fully visible.
+
+
+Contact page: contact.html — Official email and convener contact details.
