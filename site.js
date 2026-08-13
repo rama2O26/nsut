@@ -61,87 +61,133 @@
 
 
 
-  // Hero background — floating mathematical symbols
+  // Hero background — animated mathematical network
   (function () {
     const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
 
     const ctx = canvas.getContext('2d');
     const hero = canvas.closest('.hero');
-    let w, h, symbols, dpr;
+    if (!hero) return;
 
-    const GLYPHS = ['∫', '∑', 'π', '∞', '√', 'Δ', 'θ', 'λ', '∂', '≈', '±', '∇', 'Ω', '∮'];
-    const COLORS = ['230,201,131', '212,185,106']; // bright gold, brass-light
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let w = 0, h = 0, nodes = [], dpr = 1;
+    let resizeTimer;
 
-    function glyphCount() {
-      const area = w * h;
-      return Math.min(34, Math.max(16, Math.round(area / 42000)));
+    const NODE_COUNT_DESKTOP = 48;
+    const NODE_COUNT_MOBILE = 26;
+    const MAX_LINK_DISTANCE = 165;
+    const NODE_COLOR = '230,201,131';
+    const LINE_COLOR = '212,185,106';
+
+    function nodeCount() {
+      return window.innerWidth <= 860 ? NODE_COUNT_MOBILE : NODE_COUNT_DESKTOP;
+    }
+
+    function spawnNode() {
+      const speed = window.innerWidth <= 860 ? 0.21 : 0.29;
+      return {
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * speed,
+        vy: (Math.random() - 0.5) * speed,
+        radius: Math.random() * 1.5 + 1.1,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.012 + Math.random() * 0.016
+      };
     }
 
     function resize() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = hero.offsetWidth;
       h = hero.offsetHeight;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
+      canvas.width = Math.max(1, Math.round(w * dpr));
+      canvas.height = Math.max(1, Math.round(h * dpr));
       canvas.style.width = w + 'px';
       canvas.style.height = h + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const count = glyphCount();
-      symbols = Array.from({ length: count }, spawn);
+      nodes = Array.from({ length: nodeCount() }, spawnNode);
     }
 
-    function spawn() {
-      return {
-        char: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
-        x: Math.random() * w,
-        y: Math.random() * h,
-        size: Math.random() * 22 + 16,
-        vx: (Math.random() - 0.5) * 0.9,
-        vy: (Math.random() - 0.5) * 0.9,
-        rotation: (Math.random() - 0.5) * 0.6,
-        rotSpeed: (Math.random() - 0.5) * 0.006,
-        opacity: Math.random() * 0.32 + 0.28,
-        color: COLORS[Math.floor(Math.random() * COLORS.length)]
-      };
+    function drawNetwork(animate) {
+      ctx.clearRect(0, 0, w, h);
+
+      // Very subtle depth haze behind the network.
+      const glow = ctx.createRadialGradient(w * 0.55, h * 0.42, 0, w * 0.55, h * 0.42, Math.max(w, h) * 0.65);
+      glow.addColorStop(0, 'rgba(196,150,58,0.095)');
+      glow.addColorStop(1, 'rgba(176,141,69,0)');
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, w, h);
+
+      for (const n of nodes) {
+        if (animate) {
+          n.x += n.vx;
+          n.y += n.vy;
+          n.pulse += n.pulseSpeed;
+
+          if (n.x < -20 || n.x > w + 20) n.vx *= -1;
+          if (n.y < -20 || n.y > h + 20) n.vy *= -1;
+          n.x = Math.max(-20, Math.min(w + 20, n.x));
+          n.y = Math.max(-20, Math.min(h + 20, n.y));
+        }
+      }
+
+      // Draw connections first so nodes remain crisp on top.
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i];
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.hypot(dx, dy);
+
+          if (dist < MAX_LINK_DISTANCE) {
+            const strength = 1 - dist / MAX_LINK_DISTANCE;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(${LINE_COLOR},${0.035 + strength * 0.13})`;
+            ctx.lineWidth = 0.65 + strength * 0.45;
+            ctx.stroke();
+          }
+        }
+      }
+
+      for (const n of nodes) {
+        const pulse = 1 + Math.sin(n.pulse) * 0.16;
+        const r = n.radius * pulse;
+
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r * 2.7, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${NODE_COLOR},0.085)`;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${NODE_COLOR},${0.42 + pulse * 0.16})`;
+        ctx.fill();
+      }
     }
 
     function step() {
-      ctx.clearRect(0, 0, w, h);
-
-      for (const s of symbols) {
-        s.x += s.vx;
-        s.y += s.vy;
-        if (s.x < 0 || s.x > w) s.vx *= -1;
-        if (s.y < 0 || s.y > h) s.vy *= -1;
-        s.x = Math.max(0, Math.min(w, s.x));
-        s.y = Math.max(0, Math.min(h, s.y));
-        s.rotation += s.rotSpeed;
-
-        ctx.save();
-        ctx.translate(s.x, s.y);
-        ctx.rotate(s.rotation);
-        ctx.font = `italic 300 ${s.size}px 'Fraunces', Georgia, serif`;
-        ctx.fillStyle = `rgba(${s.color},${s.opacity})`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(s.char, 0, 0);
-        ctx.restore();
-      }
-
+      drawNetwork(true);
       requestAnimationFrame(step);
     }
 
-    let resizeTimer;
+    resize();
+
+    // For reduced-motion users, show a calm static network rather than hiding it.
+    if (reduceMotion) {
+      drawNetwork(false);
+      return;
+    }
+
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(resize, 150);
     });
+    window.addEventListener('orientationchange', () => setTimeout(resize, 150));
 
-    resize();
     requestAnimationFrame(step);
   })();
 
@@ -186,21 +232,37 @@
     }
   }
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    function setMenu(open) {
+      navLinks.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      if (!open) {
+        const visit = navLinks.querySelector('.nav-dropdown');
+        const toggle = navLinks.querySelector('.nav-dropdown-toggle');
+        if (visit) visit.classList.remove('is-open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    window.addEventListener('resize', () => { if (window.innerWidth > 860) setMenu(false); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+  }
+
+  // Back-to-top button appears after a short scroll and returns smoothly to the top.
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    const updateBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 420);
+    updateBackToTop();
+    window.addEventListener('scroll', updateBackToTop, {passive:true});
+    backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
   }
 
   // Nearby attractions accordion
-  document.querySelectorAll('.attraction-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.attraction-card');
-      const isOpen = card.classList.contains('open');
-      card.classList.toggle('open', !isOpen);
-      btn.setAttribute('aria-expanded', String(!isOpen));
-    });
-  });
-
-  // Schedule day tabs
+    // Schedule day tabs
   const tabs = document.querySelectorAll('.day-tab');
   const panels = document.querySelectorAll('.day-panel');
   tabs.forEach(tab => {
