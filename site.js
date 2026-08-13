@@ -34,9 +34,11 @@
       }
       if (navLinks) {
         if (isMobile()) {
+          navLinks.style.setProperty('--mobile-nav-panel-top', navH + 'px');
           navLinks.style.top = navH + 'px';
-          navLinks.style.height = 'calc(100vh - ' + totalH + 'px)';
+          navLinks.style.height = 'calc(100vh - ' + navH + 'px)';
         } else {
+          navLinks.style.removeProperty('--mobile-nav-panel-top');
           navLinks.style.top = '';
           navLinks.style.height = '';
         }
