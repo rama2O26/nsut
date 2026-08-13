@@ -1261,3 +1261,200 @@ nav.links .nav-dropdown{
     background:var(--brass-light) !important;
   }
 }
+
+
+/* ---------- UNIVERSAL MOBILE NAVIGATION — SAME ON EVERY PAGE ---------- */
+@media (max-width:860px){
+  body.nav-open{overflow:hidden;}
+
+  header.site-nav.mobile-menu-open{
+    z-index:130 !important;
+  }
+
+  header.site-nav nav.links{
+    position:fixed !important;
+    left:0 !important;
+    right:0 !important;
+    top:var(--mobile-nav-panel-top, 0px) !important;
+    width:100vw !important;
+    max-width:none !important;
+    height:calc(100vh - var(--mobile-nav-panel-top, 0px)) !important;
+    min-height:0 !important;
+    box-sizing:border-box !important;
+    margin:0 !important;
+    padding:52px 24px 60px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    flex-wrap:nowrap !important;
+    gap:0 !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    background:#0B2D5C !important;
+    border:0 !important;
+    box-shadow:none !important;
+    transform:translate3d(100%,0,0) !important;
+    transition:transform .25s ease !important;
+    z-index:120 !important;
+  }
+
+  header.site-nav nav.links.open{
+    transform:translate3d(0,0,0) !important;
+  }
+
+  header.site-nav nav.links > a,
+  header.site-nav nav.links > .nav-dropdown{
+    flex:0 0 auto !important;
+    width:auto !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    border:0 !important;
+    padding:0 !important;
+    margin:0 0 28px !important;
+    background:transparent !important;
+    text-align:center !important;
+  }
+
+  header.site-nav nav.links > a{
+    display:block !important;
+    color:var(--vellum-2) !important;
+    font-family:'IBM Plex Mono',monospace !important;
+    font-size:17px !important;
+    line-height:1.25 !important;
+    letter-spacing:.055em !important;
+    text-transform:uppercase !important;
+    opacity:.92 !important;
+    text-decoration:none !important;
+  }
+
+  header.site-nav nav.links > a.is-active:not(.nav-abstract):not(.nav-cta){
+    color:var(--brass-light) !important;
+    opacity:1 !important;
+    text-decoration:underline !important;
+    text-decoration-color:var(--brass) !important;
+    text-underline-offset:8px !important;
+  }
+
+  header.site-nav nav.links .nav-abstract,
+  header.site-nav nav.links .nav-cta{
+    width:auto !important;
+    min-width:300px !important;
+    max-width:calc(100vw - 72px) !important;
+    padding:14px 34px !important;
+    margin:0 0 28px !important;
+    border:1px solid var(--brass) !important;
+    border-radius:2px !important;
+    text-align:center !important;
+    box-sizing:border-box !important;
+  }
+
+  header.site-nav nav.links .nav-abstract{color:var(--vellum-2) !important;}
+  header.site-nav nav.links .nav-cta{color:var(--vellum-2) !important;}
+
+  header.site-nav nav.links .nav-dropdown{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    width:auto !important;
+  }
+
+  header.site-nav nav.links .nav-dropdown-toggle{
+    width:auto !important;
+    padding:0 !important;
+    margin:0 !important;
+    color:var(--vellum-2) !important;
+    font-family:'IBM Plex Mono',monospace !important;
+    font-size:17px !important;
+    line-height:1.25 !important;
+    letter-spacing:.055em !important;
+    text-transform:uppercase !important;
+    text-align:center !important;
+    opacity:.92 !important;
+  }
+
+  header.site-nav nav.links .nav-dropdown.is-active > .nav-dropdown-toggle,
+  header.site-nav nav.links .nav-dropdown.is-open > .nav-dropdown-toggle{
+    color:var(--brass-light) !important;
+    opacity:1 !important;
+  }
+
+  header.site-nav nav.links .nav-dropdown-menu{
+    position:static !important;
+    display:none !important;
+    width:auto !important;
+    min-width:0 !important;
+    margin:14px 0 0 !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    transform:none !important;
+    text-align:center !important;
+  }
+
+  header.site-nav nav.links .nav-dropdown.is-open .nav-dropdown-menu{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:14px !important;
+  }
+
+  header.site-nav nav.links .nav-dropdown-menu a{
+    padding:0 !important;
+    color:var(--vellum-2) !important;
+    font-size:14px !important;
+    text-align:center !important;
+  }
+
+  header.site-nav nav.links .nav-dropdown-menu a:hover,
+  header.site-nav nav.links .nav-dropdown-menu a.is-active{
+    background:transparent !important;
+    color:var(--brass-light) !important;
+    border:0 !important;
+  }
+
+  header.site-nav nav.links .nav-contact{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    margin-bottom:0 !important;
+  }
+
+  header.site-nav nav.links .nav-contact-icon{font-size:15px !important;}
+
+  header.site-nav .menu-toggle{
+    position:relative !important;
+    z-index:140 !important;
+    width:44px !important;
+    height:44px !important;
+    padding:8px !important;
+    margin:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  header.site-nav .menu-toggle span{
+    width:24px !important;
+    height:2px !important;
+    margin:3px 0 !important;
+    background:var(--brass-light) !important;
+  }
+
+  @media (max-width:420px){
+    header.site-nav nav.links{padding-left:18px !important; padding-right:18px !important;}
+    header.site-nav nav.links > a,
+    header.site-nav nav.links .nav-dropdown-toggle{font-size:16px !important;}
+    header.site-nav nav.links .nav-abstract,
+    header.site-nav nav.links .nav-cta{min-width:280px !important; max-width:calc(100vw - 52px) !important;}
+  }
+}

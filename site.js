@@ -34,9 +34,9 @@
       }
       if (navLinks) {
         if (isMobile()) {
-          navLinks.style.setProperty('--mobile-nav-panel-top', navH + 'px');
-          navLinks.style.top = navH + 'px';
-          navLinks.style.height = 'calc(100vh - ' + navH + 'px)';
+          navLinks.style.setProperty('--mobile-nav-panel-top', navTop + 'px');
+          navLinks.style.top = navTop + 'px';
+          navLinks.style.height = 'calc(100vh - ' + navTop + 'px)';
         } else {
           navLinks.style.removeProperty('--mobile-nav-panel-top');
           navLinks.style.top = '';
@@ -196,6 +196,7 @@
   // Shared multi-page navigation: active state + Visit Info dropdown
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
+  const siteNav = document.querySelector('header.site-nav');
   const currentFile = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const pageMap = {
     'index.html': 'home',
@@ -237,6 +238,7 @@
     function setMenu(open) {
       navLinks.classList.toggle('open', open);
       document.body.classList.toggle('nav-open', open);
+      if (siteNav) siteNav.classList.toggle('mobile-menu-open', open);
       menuToggle.setAttribute('aria-expanded', String(open));
       if (!open) {
         const visit = navLinks.querySelector('.nav-dropdown');
@@ -277,12 +279,12 @@
   });
 
   // Nav background on scroll
-  const siteNav = document.querySelector('.site-nav');
+  const navHeader = document.querySelector('.site-nav');
   const onScroll = () => {
-    if (window.scrollY > 40) siteNav.classList.add('scrolled');
-    else siteNav.classList.remove('scrolled');
+    if (window.scrollY > 40) navHeader.classList.add('scrolled');
+    else navHeader.classList.remove('scrolled');
   };
-  if (siteNav) {
+  if (navHeader) {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
