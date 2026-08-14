@@ -886,7 +886,7 @@
 <style>
   .abstract-page {
     min-height: 100vh;
-    padding: calc(var(--fixed-bars-h, 150px) + 70px) 0 80px;
+    padding: 58px 0 80px;
     background:
       radial-gradient(circle at 10% 10%, rgba(212,185,106,.10), transparent 28%),
       radial-gradient(circle at 90% 30%, rgba(53,81,63,.08), transparent 25%),
@@ -1017,7 +1017,7 @@
   }
   @media (max-width: 700px) {
     .abstract-page {
-      padding-top: calc(var(--fixed-bars-h, 150px) + 44px);
+      padding-top: 40px;
     }
     .submission-step {
       grid-template-columns: 52px 1fr;
@@ -1112,6 +1112,7 @@ nav.links .nav-dropdown{position:relative; display:flex; align-items:center;}
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
 
 <style>
 /* Universal mobile navigation override — matches every other page */
@@ -1136,6 +1137,70 @@ nav.links .nav-dropdown{position:relative; display:flex; align-items:center;}
   header.site-nav .menu-toggle{position:relative !important;z-index:140 !important;width:44px !important;height:44px !important;padding:8px !important;margin:0 !important;display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;background:transparent !important;border:0 !important;box-shadow:none !important;}
   header.site-nav .menu-toggle span{width:24px !important;height:2px !important;margin:3px 0 !important;background:var(--brass-light) !important;}
   @media (max-width:420px){header.site-nav nav.links{padding-left:18px !important;padding-right:18px !important;}header.site-nav nav.links > a,header.site-nav nav.links .nav-dropdown-toggle{font-size:16px !important;}header.site-nav nav.links .nav-abstract,header.site-nav nav.links .nav-cta{min-width:280px !important;max-width:calc(100vw - 52px) !important;}}
+}
+</style>
+<style id="abstract-footer-visibility-fix">
+/* Ensure the Submit Abstract page uses the same visible footer treatment as every other page. */
+footer {
+  position: relative;
+  z-index: 1;
+  background: #14213D !important;
+  color: #EAE4D2 !important;
+  border-top: 1px solid rgba(212,185,106,0.22) !important;
+  padding: 80px 0 0 !important;
+}
+footer .footer-brand .logo,
+footer .footer-brand .logo b,
+footer .footer-brand .logo span { color: #F3EFE2 !important; }
+footer .footer-tagline {
+  color: #EAE4D2 !important;
+  max-width: 420px;
+}
+footer .footer-col h4 {
+  color: #D4B96A !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+  margin: 0 0 18px !important;
+}
+footer .footer-links {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 11px !important;
+}
+footer .footer-links a {
+  color: #EAE4D2 !important;
+  text-decoration: none !important;
+  font-size: 15px !important;
+  opacity: .9 !important;
+}
+footer .footer-links a:hover {
+  color: #D4B96A !important;
+  opacity: 1 !important;
+}
+footer .footer-contact-col p {
+  color: #EAE4D2 !important;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+}
+footer .footer-email {
+  display: inline-block !important;
+  color: #D4B96A !important;
+  text-decoration: none !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 13px !important;
+}
+footer .footer-conveners strong { color: #D4B96A !important; }
+footer .footer-bottom {
+  color: #EAE4D2 !important;
+  border-top: 1px solid rgba(212,185,106,0.22) !important;
+}
+footer .footer-bottom span { color: #EAE4D2 !important; }
+@media (max-width: 860px) {
+  footer { padding-top: 56px !important; }
+  footer .footer-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
 }
 </style>
 </head>
@@ -1265,69 +1330,6 @@ nav.links .nav-dropdown{position:relative; display:flex; align-items:center;}
     </div>
   </div>
 </footer>
-<script>
-(function () {
-  const banner = document.querySelector('.top-banner');
-  const nav = document.querySelector('header.site-nav');
-  const navLinks = document.querySelector('nav.links');
-  if (!banner || !nav) return;
-  function isMobile() { return window.innerWidth <= 860; }
-  function apply() {
-    const bannerH = banner.offsetHeight;
-    nav.style.top = bannerH + 'px';
-    const navH = nav.offsetHeight;
-    const totalH = bannerH + navH;
-    document.documentElement.style.setProperty('--fixed-bars-h', totalH + 'px');
-    if (navLinks) {
-      if (isMobile()) {
-        navLinks.style.top = navH + 'px';
-        navLinks.style.height = 'calc(100vh - ' + totalH + 'px)';
-      } else {
-        navLinks.style.top = '';
-        navLinks.style.height = '';
-      }
-    }
-  }
-  apply();
-  window.addEventListener('resize', apply);
-  window.addEventListener('orientationchange', function () { setTimeout(apply, 150); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(apply);
-})();
-</script>
-<script>
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-}
-
-// Visit Info dropdown
-const visitDropdown = navLinks ? navLinks.querySelector('.nav-dropdown') : null;
-const visitToggle = navLinks ? navLinks.querySelector('.nav-dropdown-toggle') : null;
-if (visitDropdown && visitToggle) {
-  visitToggle.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const isOpen = visitDropdown.classList.toggle('is-open');
-    visitToggle.setAttribute('aria-expanded', String(isOpen));
-  });
-  document.addEventListener('click', (event) => {
-    if (!visitDropdown.contains(event.target)) {
-      visitDropdown.classList.remove('is-open');
-      visitToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
-
-const siteNav = document.querySelector('.site-nav');
-if (siteNav) {
-  const onScroll = () => {
-    if (window.scrollY > 40) siteNav.classList.add('scrolled');
-    else siteNav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}
-</script>
+<script defer src="site.js"></script>
 </body>
 </html>

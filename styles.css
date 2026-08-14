@@ -1458,3 +1458,7 @@ nav.links .nav-dropdown{
     header.site-nav nav.links .nav-cta{min-width:280px !important; max-width:calc(100vw - 52px) !important;}
   }
 }
+
+
+/* Safari-safe attractions visibility fallback */
+.attractions-grid { opacity: 1; transform: none; }
