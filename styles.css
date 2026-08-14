@@ -1669,3 +1669,84 @@ html, body{
   .hero h1 .big-line{font-size:clamp(1.8rem,9vw,2.35rem) !important; line-height:1.08 !important;}
   .hero .acronym{font-size:12.5px !important; line-height:1.5 !important;}
 }
+
+/* ---------- FINAL MOBILE TOP-BANNER COLLISION FIX ---------- */
+@media (max-width:860px){
+  .top-banner-inner{
+    display:grid !important;
+    grid-template-columns:max-content 1px minmax(0,1fr) !important;
+    align-items:center !important;
+    column-gap:8px !important;
+    width:100% !important;
+    min-width:0 !important;
+    padding:10px 12px !important;
+  }
+  .top-banner-logos{
+    display:flex !important;
+    align-items:center !important;
+    gap:6px !important;
+    min-width:0 !important;
+    width:max-content !important;
+    max-width:100% !important;
+    flex-shrink:0 !important;
+  }
+  .tb-logo-rama{
+    display:block !important;
+    width:clamp(58px,18vw,72px) !important;
+    height:auto !important;
+    max-width:72px !important;
+    flex:0 0 auto !important;
+  }
+  .tb-logo-nsut{
+    display:block !important;
+    width:clamp(32px,10vw,42px) !important;
+    height:auto !important;
+    max-width:42px !important;
+    flex:0 0 auto !important;
+  }
+  .top-banner-divider{
+    grid-column:2 !important;
+    width:1px !important;
+    height:42px !important;
+    margin:0 !important;
+  }
+  .top-banner-text{
+    grid-column:3 !important;
+    min-width:0 !important;
+    width:100% !important;
+    overflow:hidden !important;
+  }
+  .tb-uni-name{
+    display:block !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    font-size:clamp(12px,4vw,16px) !important;
+    line-height:1.08 !important;
+    letter-spacing:-0.01em !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+  }
+  .tb-dept{
+    display:block !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    font-size:clamp(7.5px,2.45vw,10px) !important;
+    line-height:1.15 !important;
+    letter-spacing:.02em !important;
+    white-space:normal !important;
+  }
+}
+
+@media (max-width:360px){
+  .top-banner-inner{
+    grid-template-columns:94px 1px minmax(0,1fr) !important;
+    column-gap:6px !important;
+    padding:9px 9px !important;
+  }
+  .top-banner-logos{gap:4px !important;}
+  .tb-logo-rama{width:58px !important; max-width:58px !important;}
+  .tb-logo-nsut{width:32px !important; max-width:32px !important;}
+  .top-banner-divider{height:38px !important;}
+  .tb-uni-name{font-size:12px !important; line-height:1.06 !important;}
+  .tb-dept{font-size:7.5px !important;}
+}
