@@ -199,16 +199,24 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
   .announcement-track{
     display:flex;
     width:max-content;
+    min-width:max-content;
     flex:0 0 auto;
-    animation:announcement-scroll 30s linear infinite;
+    animation:announcement-scroll 38s linear infinite;
     will-change:transform;
+  }
+  .announcement-group{
+    display:flex;
+    align-items:center;
+    flex:0 0 auto;
+    width:max-content;
   }
   .announcement-text{
     flex:0 0 auto;
-    padding:0 52px;
+    padding:0 64px;
     font-family:'IBM Plex Mono', monospace;
     font-size:12.5px;
     letter-spacing:.035em;
+    line-height:1;
     white-space:nowrap;
   }
   @keyframes announcement-scroll{
@@ -1168,7 +1176,7 @@ nav.links .nav-dropdown{
     padding:26px 24px 40px;
     gap:0;
     align-items:stretch;
-    background:rgba(11,45,92,.99);
+    background:var(--ink);
     box-shadow:0 20px 40px rgba(10,16,30,.35);
   }
   nav.links > a,
@@ -1291,7 +1299,7 @@ nav.links .nav-dropdown{
     gap:0 !important;
     overflow-x:hidden !important;
     overflow-y:auto !important;
-    background:#0B2D5C !important;
+    background:var(--ink) !important;
     border:0 !important;
     box-shadow:none !important;
     transform:translate3d(100%,0,0) !important;
@@ -1460,5 +1468,204 @@ nav.links .nav-dropdown{
 }
 
 
-/* Safari-safe attractions visibility fallback */
-.attractions-grid { opacity: 1; transform: none; }
+/* ---------- MOBILE WIDTH / TEXT RENDERING HARDENING ---------- */
+html, body{
+  max-width:100%;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+@media (max-width:860px){
+  /* Let the header grow naturally on narrow devices; JS measures the real height. */
+  body.has-announcements .top-banner{
+    height:auto !important;
+    min-height:0 !important;
+  }
+  .top-banner-inner{
+    width:100%;
+    min-width:0;
+    padding:12px 14px !important;
+    gap:9px !important;
+  }
+  .top-banner-logos{
+    min-width:0;
+    gap:8px !important;
+    flex:0 1 auto;
+  }
+  .tb-logo-rama{
+    height:auto !important;
+    width:clamp(58px,19vw,76px) !important;
+    max-width:76px;
+  }
+  .tb-logo-nsut{
+    height:auto !important;
+    width:clamp(34px,12vw,48px) !important;
+    max-width:48px;
+  }
+  .top-banner-divider{
+    height:48px !important;
+    flex:0 0 1px;
+  }
+  .top-banner-text{
+    min-width:0;
+    flex:1 1 auto;
+    overflow:hidden;
+  }
+  .tb-uni-name{
+    font-size:clamp(13px,4.2vw,17px) !important;
+    line-height:1.12 !important;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  .tb-dept{
+    font-size:clamp(8px,2.7vw,11px) !important;
+    line-height:1.2 !important;
+    letter-spacing:.025em !important;
+    white-space:normal;
+  }
+
+  /* Announcement text must not depend on a webfont loading race on iOS Chrome/Safari. */
+  .announcement-banner{
+    width:100%;
+    max-width:100vw;
+  }
+  .announcement-label{
+    flex:0 0 auto;
+    white-space:nowrap;
+    line-height:1;
+  }
+  .announcement-viewport{
+    min-width:0;
+    width:0;
+    flex:1 1 auto;
+  }
+  .announcement-track,
+  .announcement-text{
+    font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    font-weight:500;
+    font-synthesis:none;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+  }
+  .announcement-text{
+    font-size:clamp(10px,3.0vw,12px) !important;
+    line-height:1 !important;
+    letter-spacing:.025em !important;
+    padding-left:clamp(22px,6vw,34px) !important;
+    padding-right:clamp(22px,6vw,34px) !important;
+  }
+
+  /* Prevent flex/grid children from creating a layout wider than the phone. */
+  .wrap,
+  .hero-inner,
+  section,
+  .about-grid,
+  .venue-grid,
+  .contact-grid,
+  .speaker-grid,
+  .attractions-grid,
+  .awards-grid,
+  .footer-grid,
+  .hero-meta,
+  .hero-cta-row,
+  .countdown,
+  .topic-item,
+  .sched-row,
+  .committee-row,
+  .contact-card{
+    min-width:0;
+    max-width:100%;
+  }
+  .wrap{width:100%;}
+  .hero h1,
+  .hero .acronym,
+  .section-head,
+  .about-col p,
+  .topic-item,
+  .sched-row,
+  .fee-note,
+  .contact-card,
+  .footer-tagline,
+  .footer-links,
+  .footer-contact-col{
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  /* Keep long labels/emails from forcing horizontal overflow. */
+  a, button, p, li, td, th, h1, h2, h3, h4, span, div{
+    max-width:100%;
+  }
+
+  /* Use the visual viewport on modern Safari/Chrome; keep a safe fallback. */
+  header.site-nav nav.links{
+    height:calc(100vh - var(--mobile-nav-panel-top, 0px)) !important;
+    height:calc(100dvh - var(--mobile-nav-panel-top, 0px)) !important;
+  }
+}
+
+/* ---------- MOBILE ANNOUNCEMENT TICKER STABILITY ---------- */
+@media (max-width:860px){
+  .announcement-banner{
+    background:var(--vellum-2) !important;
+    color:var(--ink) !important;
+    overflow:hidden !important;
+    isolation:isolate;
+  }
+  .announcement-label{
+    position:relative !important;
+    z-index:3 !important;
+    flex:0 0 auto !important;
+    background:var(--brass) !important;
+    color:var(--ink) !important;
+  }
+  .announcement-viewport{
+    position:relative !important;
+    z-index:1 !important;
+    flex:1 1 0 !important;
+    width:auto !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .announcement-track{
+    position:relative !important;
+    display:flex !important;
+    flex:0 0 auto !important;
+    width:max-content !important;
+    min-width:max-content !important;
+    animation-duration:42s !important;
+    transform:translate3d(0,0,0);
+  }
+  .announcement-group{
+    display:flex !important;
+    flex:0 0 auto !important;
+    width:max-content !important;
+    align-items:center !important;
+  }
+  .announcement-text{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+    font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    font-size:clamp(9.5px,2.75vw,11px) !important;
+    line-height:1 !important;
+    letter-spacing:.015em !important;
+    padding:0 clamp(28px,8vw,46px) !important;
+    font-weight:500 !important;
+    font-synthesis:none !important;
+    text-rendering:geometricPrecision !important;
+  }
+}
+
+@media (max-width:360px){
+  .top-banner-inner{padding-left:10px !important; padding-right:10px !important; gap:6px !important;}
+  .top-banner-logos{gap:5px !important;}
+  .top-banner-divider{height:42px !important;}
+  .tb-uni-name{font-size:13px !important;}
+  .tb-dept{font-size:8px !important;}
+  .announcement-label{padding-left:8px !important; padding-right:8px !important; font-size:9px !important;}
+  .announcement-text{font-size:9.5px !important; padding-left:18px !important; padding-right:18px !important;}
+  .hero h1 .small-line{font-size:13px !important;}
+  .hero h1 .big-line{font-size:clamp(1.8rem,9vw,2.35rem) !important; line-height:1.08 !important;}
+  .hero .acronym{font-size:12.5px !important; line-height:1.5 !important;}
+}
