@@ -414,7 +414,7 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
     color:var(--brass);
     font-size:17px;
   }
-  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.3rem);}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.3rem); white-space:nowrap;}
   .section-head p{
     margin-top:8px; color:var(--paper-text-soft); font-size:18px; max-width:560px;
   }
