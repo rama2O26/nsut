@@ -26,3 +26,5 @@ Latest fixes: navigation is fully opaque (no backdrop blur), and all inner-page 
 Contact page: contact.html — Official email and convener contact details.
 
 Favicon files: favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png
+
+SEO & discoverability implemented: page titles, meta descriptions, Open Graph/Twitter cards, canonical URLs, Event/Organization/Breadcrumb JSON-LD, sitemap.xml, robots.txt, and social-preview.jpg.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rama2026.org/sitemap.xml
