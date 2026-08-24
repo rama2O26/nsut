@@ -715,7 +715,7 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
   table.fee-table{
     width:100%;
     border-collapse:collapse;
-    min-width:560px;
+    min-width:760px;
   }
   .fee-table th, .fee-table td{
     padding:18px 26px;
@@ -755,6 +755,10 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
     font-family:'IBM Plex Mono', monospace;
     font-size:17px;
     color:var(--ink);
+  }
+  .fee-table tbody td.online-fee{
+    color:var(--ink);
+    font-weight:400;
   }
   .fee-table tbody tr:first-child th.cat,
   .fee-table tbody tr:first-child td{border-top:none;}
