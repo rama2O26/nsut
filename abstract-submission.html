@@ -919,6 +919,71 @@
     color: var(--paper-text-soft);
     font-size: 21px;
   }
+  .publication-partner {
+    max-width: 1000px;
+    margin: 0 auto 28px;
+    padding: clamp(24px, 4vw, 34px) clamp(24px, 5vw, 44px);
+    background: linear-gradient(135deg, rgba(212,185,106,.14), rgba(255,255,255,.58));
+    border: 1px solid rgba(212,185,106,.62);
+    border-left: 5px solid var(--brass);
+    box-shadow: 0 16px 42px rgba(20,33,61,.07);
+    text-align: left;
+  }
+  .publication-partner-label {
+    margin-bottom: 10px;
+    color: var(--brass);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .publication-partner h2 {
+    margin: 0 0 12px;
+    color: var(--ink);
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.12;
+  }
+  .publication-partner p {
+    margin: 0 0 16px;
+    color: var(--paper-text-soft);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .publication-journal {
+    display: inline-block;
+    color: var(--ink);
+    font-family: 'Fraunces', serif;
+    font-size: clamp(19px, 2.4vw, 24px);
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212,185,106,.75);
+    padding-bottom: 2px;
+  }
+  .publication-journal:hover {
+    color: var(--brass);
+  }
+  .publication-meta {
+    display: block;
+    margin-top: 6px;
+    color: var(--paper-text-soft);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .publication-partner {
+      margin-bottom: 22px;
+      padding: 22px 20px;
+    }
+    .publication-partner p {
+      font-size: 15px;
+    }
+    .publication-meta {
+      font-size: 12px;
+    }
+  }
   .submission-card {
     max-width: 1000px;
     margin: 0 auto;
@@ -1288,6 +1353,13 @@ footer .footer-bottom span { color: #EAE4D2 !important; }
 <span class="abstract-eyebrow">RAM&amp;A 2026</span>
 <h1>Submit Your Abstract</h1>
 <p>Follow the two simple steps below to prepare your abstract and complete your submission for the conference.</p>
+</div>
+<div class="publication-partner" role="note" aria-label="Publication Partner">
+<div class="publication-partner-label">Journal Collaboration</div>
+<h2>Publication Partner</h2>
+<p>Selected high-quality papers presented at <strong>RAM&amp;A-2026</strong> will be recommended for consideration for publication in the following journal, subject to the journal's standard editorial and peer-review process.</p>
+<a class="publication-journal" href="https://link.springer.com/journal/11868" rel="noopener" target="_blank">Journal of Pseudo-Differential Operators and Applications</a>
+<span class="publication-meta">Springer Nature &nbsp;·&nbsp; Impact Factor: 1.6 &nbsp;·&nbsp; Q2 &nbsp;·&nbsp; SCIE Indexed</span>
 </div>
 <div class="submission-card">
 <section class="submission-step">
