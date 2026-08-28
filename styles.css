@@ -103,6 +103,13 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
     align-items:center;
     gap:10px;
   }
+  /* Keep the home link transparent to the existing logo layout. */
+  .nav-home-link{
+    display:contents;
+    color:inherit;
+    text-decoration:none;
+  }
+  .nav-home-link:hover{color:inherit;}
   .logo-icon{flex:none; display:block;}
   .logo-badge{
     flex:none;
@@ -115,6 +122,10 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
   .logo-icon-img{display:block; height:22px; width:auto;}
   .footer-brand .logo-icon-img{height:26px;}
   .logo b{color:var(--brass-light); font-weight:500;}
+.logo-year{display:inline-flex; align-items:center; gap:8px; white-space:nowrap;}
+.logo-separator{display:inline-flex; align-items:center; justify-content:center; line-height:1; transform:translateY(-0.5px);}
+.footer-conv-email{color:inherit; text-decoration:none;}
+.footer-conv-email:hover{color:var(--brass-light); text-decoration:underline; text-underline-offset:3px;}
   nav.links{display:flex; gap:18px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
   nav.links a{
     color:var(--vellum-2);
@@ -591,6 +602,14 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
     display:block;
     transition:transform .4s ease;
   }
+
+  .speaker-photo img.speaker-photo-full{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
+
   .speaker-card:hover .speaker-photo img{transform:scale(1.05);}
   .speaker-card:hover .speaker-photo{
     transform:translateY(-8px);
@@ -924,6 +943,11 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 640px){
     .speaker-grid{grid-template-columns:repeat(2, 1fr); gap:22px 14px;}
+    /* Keep the first two rows of speaker cards visible on initial mobile load. */
+    .speaker-grid .speaker-card.reveal:nth-child(-n+4){
+      opacity:1;
+      transform:none;
+    }
   }
   @media (max-width: 400px){
     .speaker-grid{gap:18px 10px;}
