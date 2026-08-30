@@ -1139,6 +1139,24 @@
     }
   }
 </style>
+<style id="abstract-typography-consistency">
+/* Keep this page's typography aligned with the rest of the RAM&A site. */
+.abstract-page{font-size:17px; line-height:1.68;}
+.abstract-hero h1{font-size:clamp(38px,5vw,54px); line-height:1.08;}
+.abstract-hero p{font-size:18px; line-height:1.65;}
+.publication-partner h2{font-size:clamp(25px,3.2vw,32px);}
+.publication-partner p{font-size:16px; line-height:1.65;}
+.publication-journal{font-size:clamp(18px,2vw,22px);}
+.submission-step h2{font-size:26px; line-height:1.2;}
+.submission-step p{font-size:17px; line-height:1.65;}
+.submission-note{font-size:15px; line-height:1.6;}
+@media(max-width:700px){
+  .abstract-hero h1{font-size:clamp(34px,9vw,46px);}
+  .abstract-hero p{font-size:17px;}
+  .submission-step h2{font-size:23px;}
+  .submission-step p{font-size:16px;}
+}
+</style>
 <style>
 /* Final shared navigation fix for the abstract-submission page */
 header.site-nav{
