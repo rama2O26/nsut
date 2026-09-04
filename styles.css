@@ -699,6 +699,76 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
     overflow:hidden;
   }
   .award-card li:first-child{border-top:none;}
+  .award-prize{float:right; color:var(--brass); font-weight:700; letter-spacing:.02em;}
+  .awards-note{
+    margin-top:28px; padding:20px 24px;
+    border-left:3px solid var(--brass);
+    background:var(--vellum-2);
+    font-size:15.5px; line-height:1.55; color:var(--paper-text-soft);
+  }
+  .awards-note strong{color:var(--ink);}
+
+  /* ---------- SUBMISSION INCENTIVES / HIGHLIGHTS ---------- */
+  .submission-highlights{
+    position:relative; padding:64px 0 78px; margin-top:0;
+    background:linear-gradient(180deg, rgba(255,255,255,.28), rgba(226,218,191,.18));
+  }
+  .highlights-heading{max-width:760px; text-align:center; margin:0 auto 30px;}
+  .highlights-heading h2{font-size:clamp(2rem, 4vw, 3rem); color:var(--ink); margin:8px 0 10px;}
+  .highlights-heading p{margin:0; color:var(--paper-text-soft); font-size:16px; line-height:1.55;}
+  .submission-highlights-grid{
+    display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:24px;
+    background:transparent; border:0; align-items:stretch;
+  }
+  .submission-highlight{
+    position:relative; overflow:hidden; padding:30px 30px 28px; min-height:220px;
+    border-radius:22px; border:1px solid rgba(255,255,255,.72);
+    box-shadow:0 14px 34px rgba(20,33,61,.13), inset 0 1px 0 rgba(255,255,255,.75);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .submission-highlight::before{
+    content:""; position:absolute; top:-55px; right:-40px; width:150px; height:150px; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,.62), rgba(255,255,255,0) 68%); pointer-events:none;
+  }
+  .submission-highlight::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:5px;
+    background:linear-gradient(90deg, rgba(255,255,255,.1), rgba(255,255,255,.8), rgba(255,255,255,.1));
+    opacity:.9;
+  }
+  .submission-highlight:nth-child(1){
+    background:linear-gradient(145deg, #f7e5a2 0%, #d4b55f 45%, #fff1bf 100%);
+  }
+  .submission-highlight:nth-child(2){
+    background:linear-gradient(145deg, #b9e5e8 0%, #6fb5ca 48%, #d7f5f3 100%);
+  }
+  .submission-highlight:nth-child(3){
+    background:linear-gradient(145deg, #d9c4ef 0%, #9770b9 48%, #f0dcf9 100%);
+  }
+  .submission-highlight:hover{transform:translateY(-8px) rotate(-.35deg); box-shadow:0 22px 42px rgba(20,33,61,.2), inset 0 1px 0 rgba(255,255,255,.85);}
+  .submission-highlight .sh-icon{display:block; font-size:30px; line-height:1; margin-bottom:14px; filter:drop-shadow(0 3px 4px rgba(0,0,0,.14));}
+  .submission-highlight .sh-kicker{
+    display:block; margin-bottom:8px; color:rgba(20,33,61,.72);
+    font-family:'IBM Plex Mono', monospace; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.13em;
+  }
+  .submission-highlight h3{margin:0 0 8px; font-size:1.35rem; color:var(--ink);}
+  .submission-highlight p{margin:0; color:rgba(20,33,61,.78); font-size:15px; line-height:1.5;}
+  .submission-highlight .sh-value{
+    display:block; margin-top:18px; color:var(--ink);
+    font-family:'Fraunces', serif; font-size:1.65rem; font-weight:700;
+    text-shadow:0 1px 0 rgba(255,255,255,.45);
+  }
+  .submission-highlight .sh-value small{font-family:'IBM Plex Mono', monospace; font-size:.48em; letter-spacing:.08em; text-transform:uppercase;}
+
+  /* Gala dinner callout */
+  .gala-callout{
+    margin-top:22px; padding:18px 22px;
+    border:1px solid var(--brass); background:linear-gradient(135deg, rgba(176,141,69,.10), rgba(243,239,226,.75));
+    display:flex; align-items:center; gap:18px;
+  }
+  .gala-callout .gala-icon{font-size:25px; line-height:1;}
+  .gala-callout h3{margin:0 0 4px; font-size:1.05rem;}
+  .gala-callout p{margin:0; color:var(--paper-text-soft); font-size:14.5px;}
 
   /* ---------- SCHEDULE ---------- */
   .day-tabs{display:flex; gap:0; margin-bottom:40px; border-bottom:1px solid var(--rule);}
@@ -1041,6 +1111,9 @@ body.inner-page{padding-top:var(--fixed-bars-h, 206px);}
     .date-card-title{font-size:15px; line-height:1.3;}
     .date-card.conference-date{grid-column:1 / -1;}
     .awards-grid{grid-template-columns:1fr;}
+    .submission-highlights-grid{grid-template-columns:1fr; gap:16px;}
+    .submission-highlight{min-height:auto;}
+    .highlights-heading{margin-bottom:22px;}
     .attractions-grid{grid-template-columns:1fr;}
     .attraction-toggle{padding:22px 20px;}
     .attraction-gallery{margin:0 20px 14px;}
@@ -1950,3 +2023,6 @@ html, body{
     max-width:54px !important;
   }
 }
+
+/* Awards count badges: make the quantity explicit rather than using ordinal numbering. */
+.award-num { min-width: 92px; width: auto; padding: 0 12px; white-space: nowrap; }
