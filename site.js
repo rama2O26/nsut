@@ -121,6 +121,35 @@
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, w, h);
 
+      // Slow mathematical trajectory behind the title.
+      const t = performance.now() * 0.00022;
+      const curveY = h * 0.34;
+      ctx.save();
+      ctx.beginPath();
+      const startX = -w * 0.08;
+      const endX = w * 1.08;
+      for (let x = startX; x <= endX; x += 10) {
+        const nx = x / Math.max(w, 1);
+        const y = curveY + Math.sin(nx * Math.PI * 2.3 + t) * (h * 0.055) + Math.sin(nx * Math.PI * 5.1 - t * 0.65) * (h * 0.012);
+        if (x === startX) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = 'rgba(212,185,106,0.13)';
+      ctx.lineWidth = 1.1;
+      ctx.shadowColor = 'rgba(212,185,106,0.18)';
+      ctx.shadowBlur = 8;
+      ctx.stroke();
+      ctx.restore();
+
+      // A small orbiting point makes the mathematical line feel alive.
+      const orbX = w * 0.20 + Math.cos(t * 1.4) * 34;
+      const orbY = curveY + Math.sin(t * 1.4) * (h * 0.055);
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, 2.3, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(230,201,131,0.75)';
+      ctx.shadowColor = 'rgba(230,201,131,0.5)';
+      ctx.shadowBlur = 12;
+      ctx.fill();
+
       for (const n of nodes) {
         if (animate) {
           n.x += n.vx;
@@ -330,3 +359,30 @@
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+// Defer remote campus gallery images until they are actually close to view.
+(function(){
+  const imgs = document.querySelectorAll('.campus-gallery-grid img[data-src]');
+  if (!imgs.length) return;
+  const loadImg = (img) => {
+    const src = img.getAttribute('data-src');
+    if (!src || img.dataset.loaded === '1') return;
+    img.dataset.loaded = '1';
+    img.src = src;
+    img.decoding = 'async';
+    img.fetchPriority = 'low';
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadImg(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '220px 0px' });
+    imgs.forEach(img => io.observe(img));
+  } else {
+    window.addEventListener('load', () => imgs.forEach(loadImg), { once:true });
+  }
+})();

@@ -80,6 +80,46 @@
 </div>
 </div>
 <div class="contact-grid">
+<div class="query-card reveal">
+<div class="query-card-head">
+<div class="query-icon" aria-hidden="true">✎</div>
+<div>
+<div class="contact-label">Submit Your Query</div>
+
+</div>
+</div>
+<form class="query-form" id="queryForm" action="https://formspree.io/f/mqpkdqkg" method="POST">
+<input type="hidden" name="_subject" value="RAM&A 2026 Website Query">
+<input type="hidden" name="_replyto" value="">
+<div class="query-form-grid">
+<label>
+<span>Name</span>
+<input type="text" name="name" autocomplete="name" required>
+</label>
+<label>
+<span>Email ID</span>
+<input type="email" name="email" autocomplete="email" required>
+</label>
+</div>
+<label>
+<span>Subject</span>
+<select name="subject" required>
+<option value="" selected disabled>Select a topic</option>
+<option>Registration</option>
+<option>Keynote</option>
+<option>Abstract/Paper Submission</option>
+<option>Publication</option>
+<option>Others</option>
+</select>
+</label>
+<label>
+<span>Message</span>
+<textarea name="message" rows="5" required></textarea>
+</label>
+<button class="query-submit" type="submit">Submit Query <span aria-hidden="true">→</span></button>
+</form>
+</div>
+<div class="contact-side">
 <div class="contact-card reveal">
 <div aria-hidden="true" class="contact-icon">✉</div>
 <div>
@@ -99,6 +139,41 @@
 </div>
 </div>
 </section><button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">↑<span>Top</span></button>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('queryForm');
+  if(!form) return;
+  var replyTo = form.querySelector('input[name="_replyto"]');
+  if(replyTo){ replyTo.value = ''; }
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var button = form.querySelector('.query-submit');
+    var email = form.elements.email.value || '';
+    if(replyTo){ replyTo.value = email; }
+    button.disabled = true;
+    button.textContent = 'Submitting…';
+    try {
+      var response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(!response.ok) throw new Error('Submission failed');
+      form.reset();
+      button.innerHTML = 'Query Submitted ✓';
+      setTimeout(function(){
+        button.innerHTML = 'Submit Query <span aria-hidden="true">→</span>';
+        button.disabled = false;
+      }, 2600);
+    } catch(err) {
+      button.innerHTML = 'Submit Query <span aria-hidden="true">→</span>';
+      button.disabled = false;
+      alert('We could not submit your query right now. Please try again.');
+    }
+  });
+});
+</script>
+
 <footer>
 <div class="wrap">
 <div class="footer-grid">
