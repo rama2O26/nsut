@@ -2889,3 +2889,83 @@ html, body{
   font-size:16px;
   line-height:1.5;
 }
+
+
+
+/* Christmas-themed Gala Dinner — Schedule page */
+.christmas-gala{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg, #4b1017 0%, #681722 52%, #3d0b12 100%) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+  box-shadow:0 16px 34px rgba(61,11,18,.28);
+}
+.christmas-gala .gala-christmas-content{
+  position:relative;
+  z-index:3;
+}
+.christmas-gala h3,
+.christmas-gala p,
+.christmas-gala div{
+  color:inherit;
+}
+.christmas-gala .gala-icon{
+  color:#fff !important;
+}
+
+
+/* Visible Christmas snowfall — Schedule Gala Dinner */
+.christmas-snowflakes{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:2;
+}
+.christmas-snowflake{
+  position:absolute;
+  top:-28px;
+  display:block;
+  color:rgba(255,255,255,.92) !important;
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:18px;
+  line-height:1;
+  text-shadow:
+    0 0 4px rgba(255,255,255,1),
+    0 0 10px rgba(255,255,255,.9),
+    0 0 20px rgba(255,255,255,.65);
+  filter:blur(1px);
+  animation:galaSnowfall 5.5s linear infinite;
+  opacity:0;
+  will-change:transform, opacity;
+}
+.sf1{left:4%;font-size:15px;animation-duration:5.8s;animation-delay:-1s}
+.sf2{left:13%;font-size:22px;animation-duration:7.2s;animation-delay:-4s}
+.sf3{left:23%;font-size:14px;animation-duration:6.1s;animation-delay:-2.5s}
+.sf4{left:34%;font-size:24px;animation-duration:8s;animation-delay:-6s}
+.sf5{left:45%;font-size:17px;animation-duration:5.9s;animation-delay:-3.2s}
+.sf6{left:55%;font-size:21px;animation-duration:7s;animation-delay:-5s}
+.sf7{left:64%;font-size:15px;animation-duration:6.5s;animation-delay:-1.8s}
+.sf8{left:73%;font-size:25px;animation-duration:8.2s;animation-delay:-7s}
+.sf9{left:82%;font-size:16px;animation-duration:6.3s;animation-delay:-4.5s}
+.sf10{left:89%;font-size:20px;animation-duration:7.4s;animation-delay:-2s}
+.sf11{left:29%;font-size:13px;animation-duration:5.4s;animation-delay:-.8s}
+.sf12{left:96%;font-size:18px;animation-duration:6.8s;animation-delay:-5.5s}
+
+@keyframes galaSnowfall{
+  0%{
+    transform:translate3d(0,-35px,0) rotate(0deg);
+    opacity:0;
+  }
+  8%{opacity:.95}
+  50%{
+    transform:translate3d(28px,160px,0) rotate(180deg);
+    opacity:.8;
+  }
+  88%{opacity:.7}
+  100%{
+    transform:translate3d(-22px,380px,0) rotate(360deg);
+    opacity:0;
+  }
+}
