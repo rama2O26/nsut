@@ -2969,3 +2969,256 @@ html, body{
     opacity:0;
   }
 }
+
+/* Performance optimization */
+.page-hidden .christmas-snowflake{
+  animation-play-state:paused !important;
+}
+.christmas-snowflake:nth-child(3),
+.christmas-snowflake:nth-child(5),
+.christmas-snowflake:nth-child(7),
+.christmas-snowflake:nth-child(9),
+.christmas-snowflake:nth-child(11){
+  display:none;
+}
+.christmas-snowflake{
+  will-change:transform,opacity;
+}
+@media (prefers-reduced-motion: reduce){
+  .christmas-snowflake{
+    animation:none !important;
+    opacity:.5 !important;
+  }
+}
+
+/* =========================================================
+   Schedule page — mobile responsive layout
+   ========================================================= */
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  /* Header / navigation */
+  header, .site-header, .navbar, nav {
+    max-width: 100%;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    white-space: nowrap;
+  }
+
+  /* Page spacing */
+  main,
+  .schedule-page,
+  .schedule-section,
+  .container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  main {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  section {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: clamp(28px, 8vw, 42px) !important;
+    line-height: 1.08;
+  }
+
+  h2 {
+    font-size: clamp(21px, 6vw, 30px) !important;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: clamp(17px, 5vw, 23px) !important;
+  }
+
+  /* Schedule table: convert wide tables into comfortable cards */
+  .schedule-table-wrap,
+  .table-responsive,
+  .schedule-table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table.schedule,
+  .schedule-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  table.schedule thead,
+  .schedule-table thead {
+    display: none;
+  }
+
+  table.schedule tbody,
+  .schedule-table tbody,
+  table.schedule tr,
+  .schedule-table tr,
+  table.schedule td,
+  .schedule-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  table.schedule tr,
+  .schedule-table tr {
+    margin-bottom: 14px;
+    border: 1px solid rgba(20, 33, 61, .14);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 16px rgba(20, 33, 61, .07);
+  }
+
+  table.schedule td,
+  .schedule-table td {
+    padding: 10px 13px !important;
+    text-align: left !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(20, 33, 61, .08) !important;
+    line-height: 1.45;
+  }
+
+  table.schedule td:last-child,
+  .schedule-table td:last-child {
+    border-bottom: 0 !important;
+  }
+
+  table.schedule td:first-child,
+  .schedule-table td:first-child {
+    font-weight: 700;
+  }
+
+  /* Generic schedule grids/cards */
+  .schedule-grid,
+  .schedule-cards,
+  .events-grid,
+  .day-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .schedule-card,
+  .event-card,
+  .session-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+
+  /* Time / event rows stack cleanly */
+  .schedule-row,
+  .event-row,
+  .session-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 7px !important;
+  }
+
+  .schedule-time,
+  .event-time,
+  .session-time {
+    min-width: 0 !important;
+    width: auto !important;
+  }
+
+  /* Mini symposiums */
+  .symposium-grid,
+  .mini-symposium-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mini-symposium,
+  .symposium-card {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* Christmas gala block */
+  .christmas-gala {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 22px 18px !important;
+    border-radius: 12px;
+  }
+
+  .christmas-gala .gala-christmas-content {
+    padding: 0 !important;
+  }
+
+  .christmas-gala h3 {
+    padding-right: 4px;
+  }
+
+  /* Keep snow inside the card on small screens */
+  .christmas-snowflakes {
+    inset: 0;
+  }
+
+  /* Prevent long names/emails/URLs from breaking the layout */
+  .schedule-page a,
+  .schedule-section a,
+  .schedule-page td,
+  .schedule-section td {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Buttons */
+  .schedule-page .btn,
+  .schedule-page button,
+  .schedule-section .btn,
+  .schedule-section button {
+    max-width: 100%;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .christmas-gala {
+    padding: 20px 14px !important;
+  }
+
+  table.schedule td,
+  .schedule-table td {
+    padding: 9px 11px !important;
+  }
+
+  .schedule-card,
+  .event-card,
+  .session-card {
+    padding: 13px !important;
+  }
+}
