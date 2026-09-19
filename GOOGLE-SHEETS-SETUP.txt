@@ -1,0 +1,19 @@
+Google Sheets query form setup
+
+The contact-page query form is configured to send submissions directly to your Google Sheet through Google Apps Script. It no longer falls back to email.
+
+1. Open the Google Sheet:
+   https://docs.google.com/spreadsheets/d/1rQWNvkNcpNHZmqy2hlxk4Mc_1OLGjPbxAbD6Sx0a7UQ/edit?usp=sharing
+2. Choose Extensions > Apps Script.
+3. Replace the editor contents with google-sheets-query-handler.gs.
+4. Deploy > New deployment > Web app.
+5. Set Execute as: Me. Set Who has access: Anyone.
+6. Authorize the script and copy the Web App URL ending in /exec.
+7. In contact.html, replace:
+   PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE
+   with that /exec URL.
+
+The script appends these columns to the first sheet tab:
+Timestamp | Name | Email ID | Subject | Message
+
+IMPORTANT: The website cannot create/deploy the Apps Script inside your Google account from this repository alone. The one-time Apps Script deployment above is required so Google can authorize writes to your Sheet.

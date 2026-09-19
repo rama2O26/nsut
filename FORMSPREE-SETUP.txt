@@ -1,0 +1,18 @@
+FORMSPREE SETUP — RAM&A 2026
+
+The Contact > Submit Your Query form is now configured for Formspree.
+
+1. Create a free Formspree account at https://formspree.io/
+2. Create a new form and copy its Form ID.
+3. In contact.html, replace YOUR_FORM_ID in:
+   https://formspree.io/f/YOUR_FORM_ID
+   with your actual Formspree Form ID.
+4. Upload the updated contact.html to your repository.
+
+The form will collect:
+- Name
+- Email ID
+- Subject
+- Message
+
+Submissions will appear in your Formspree dashboard. The visitor remains on the website and receives a confirmation state after successful submission.
