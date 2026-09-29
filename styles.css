@@ -5,6 +5,13 @@
 .journal-metrics strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#f0cf65;font-weight:500}
 .journal-metrics span{display:block;font-size:14px;color:#fff}
 .journal-partner-card{margin:28px 0 8px;padding:28px 26px;border-radius:18px;color:#fff;background:linear-gradient(145deg,#102b52 0,#183d68 58%,#0d2444 100%);border:1px solid rgba(255,224,133,.4);box-shadow:0 14px 34px rgba(20,33,61,.2)}
+.other-journals{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16)}
+.other-journals-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px}
+.other-journals p{color:rgba(255,255,255,.62);font-size:13px;margin:0 0 8px;max-width:640px}
+.other-journals-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.other-journals-list li{font-size:13px}
+.other-journals-list .journal-link{color:rgba(255,255,255,.72);text-decoration:underline;text-underline-offset:2px}
+.other-journals-list .journal-link:hover{color:#fff}
 .journal-partner-card h2{margin:6px 0 10px;color:#fff;font-size:1.5rem}
 .journal-partner-card p{color:rgba(255,255,255,.88);margin:0}
 .journal-partner-kicker{display:inline-block;padding:.3rem .7rem;border:1px solid rgba(212,175,55,.55);border-radius:999px;background:rgba(212,175,55,.12);color:#f0cf65;font-size:.7rem;font-weight:700;letter-spacing:.08em}
