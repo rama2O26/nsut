@@ -37,3 +37,28 @@
 @media(max-width:400px){.speakers-v2 .speaker-photo{width:112px}.speakers-v2 .speaker-card h4{font-size:15px}.speakers-v2 .speaker-card .affil{font-size:12.5px}.speakers-v2 .speaker-card .talk{font-size:12.5px}}
 
 .campus-stay{margin:4px 0 58px}.campus-stay-card{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:28px;align-items:center;margin-top:22px;padding:26px 28px;border:1px solid var(--brass);border-left:4px solid var(--brass);border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:0 16px 40px rgba(0,0,0,.18)}.campus-stay-price{display:flex;flex-direction:column;gap:6px;padding-right:28px;border-right:1px solid var(--ink-line)}.campus-stay-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-light)}.campus-stay-amount{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--vellum);line-height:1.1}.campus-stay-points{list-style:none;margin:0;padding:0;display:grid;gap:10px}.campus-stay-points li{position:relative;padding-left:22px;color:var(--vellum-2);font-size:16px;line-height:1.55}.campus-stay-points li::before{content:"◆";position:absolute;left:0;top:5px;color:var(--brass-light);font-size:9px}@media(max-width:760px){.campus-stay-card{grid-template-columns:1fr;gap:18px;padding:22px 20px}.campus-stay-price{padding-right:0;padding-bottom:16px;border-right:0;border-bottom:1px solid var(--ink-line)}.campus-stay-amount{font-size:1.7rem}.campus-stay-points li{font-size:14.5px}}
+
+/* Symposium pie chart + topic dropdowns */
+.sym-pie-wrap{margin:0 0 1.4rem;padding:1.3rem 1.2rem 1rem;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.sym-pie-title{margin:0 0 1rem;text-align:center;color:#f0cf65;font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.sym-pie-body{display:grid;grid-template-columns:minmax(200px,280px) minmax(0,1fr);gap:1.8rem;align-items:center}
+#sym-pie svg{width:100%;height:auto;display:block;overflow:visible}
+.sym-slice{stroke:#0b2d4d;stroke-width:1.5;transition:transform .2s ease,opacity .2s ease;transform-origin:100px 100px;cursor:pointer}
+.sym-slice.is-hl{transform:scale(1.04)}
+.sym-legend{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
+.sym-legend li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:.65rem;align-items:center;padding:.4rem .55rem;border-radius:8px;color:#fff;font-size:.88rem;line-height:1.35;transition:background .2s}
+.sym-legend li.is-hl{background:rgba(255,255,255,.1)}
+.sym-legend i{width:12px;height:12px;border-radius:3px}
+.sym-legend b{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:#f6d978;white-space:nowrap}
+.sym-pie-total{margin:.8rem 0 0;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:rgba(255,255,255,.75)}
+.sym-details{min-width:0}
+.sym-details summary{cursor:pointer;list-style:none;position:relative;padding-right:1.6rem}
+.sym-details summary::-webkit-details-marker{display:none}
+.sym-details summary::after{content:"";position:absolute;right:.2rem;top:.5em;width:8px;height:8px;border-right:2px solid #f0cf65;border-bottom:2px solid #f0cf65;transform:rotate(45deg);transition:transform .25s ease}
+.sym-details[open] summary::after{transform:rotate(225deg);top:.7em}
+.sym-details summary:hover,.sym-details summary:focus-visible{color:#f6d978}
+.sym-topics{margin:.7rem 0 .2rem;padding:.7rem .9rem .7rem 1.9rem;border-left:3px solid var(--sym-color,#d4af37);background:rgba(0,0,0,.18);border-radius:0 8px 8px 0;font-weight:400;color:rgba(255,255,255,.9);font-size:.92rem;line-height:1.5}
+.sym-topics li{margin:.2rem 0}
+.sym-stat{grid-column:1;grid-row:3;display:flex;align-items:center;gap:.5rem;margin-top:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:rgba(255,255,255,.78)}
+.sym-dot{width:10px;height:10px;border-radius:50%;background:var(--sym-color,#d4af37);flex:none}
+@media(max-width:700px){.sym-pie-body{grid-template-columns:1fr;gap:1rem}#sym-pie{max-width:240px;margin:0 auto}.sym-legend li{font-size:.82rem}.sym-stat{grid-column:1;grid-row:auto}}
