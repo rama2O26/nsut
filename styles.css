@@ -62,3 +62,25 @@
 .sym-stat{grid-column:1;grid-row:3;display:flex;align-items:center;gap:.5rem;margin-top:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:rgba(255,255,255,.78)}
 .sym-dot{width:10px;height:10px;border-radius:50%;background:var(--sym-color,#d4af37);flex:none}
 @media(max-width:700px){.sym-pie-body{grid-template-columns:1fr;gap:1rem}#sym-pie{max-width:240px;margin:0 auto}.sym-legend li{font-size:.82rem}.sym-stat{grid-column:1;grid-row:auto}}
+.mini-symposium-list+.sym-pie-wrap{margin:1.4rem 0 0}
+
+/* Mobile polish: schedule page */
+@media(hover:none){.mini-symposium-card:hover{transform:none}}
+.mini-symposium-card,.mini-symposium-faculty{min-width:0;overflow-wrap:anywhere}
+@media(max-width:700px){
+.section-head{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:32px;padding-bottom:16px}
+.section-head h2{white-space:normal}
+.section-head p{font-size:16px;margin-top:4px}
+.mini-symposiums{margin:1.4rem 0;padding:1rem .8rem;border-radius:14px}
+.mini-symposiums-head p{white-space:normal;font-size:.95rem;max-width:36ch}
+.mini-symposium-card{padding:.9rem}
+.sym-details summary{display:flex;align-items:center;min-height:44px;padding:.3rem 1.8rem .3rem 0}
+.sym-details summary::after,.sym-details[open] summary::after{top:50%}
+.sym-details summary::after{margin-top:-6px}
+.sym-details[open] summary::after{margin-top:-2px}
+.sym-topics{padding:.6rem .7rem .6rem 1.5rem;font-size:.9rem}
+.sym-pie-wrap{padding:1.1rem .8rem .8rem}
+.sym-legend li{padding:.5rem .4rem;font-size:.84rem}
+.mini-symposium-faculty{font-size:.92rem}
+.gala-callout{padding:16px}
+}
