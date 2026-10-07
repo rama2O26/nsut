@@ -30,7 +30,39 @@
       "item": "https://rama2026.org/awards.html"
     }
   ]
-}</script></head>
+}</script><style id="awards-extra">
+.awards-jump{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 0}
+.awards-jump a{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:10px 16px;border:1px solid var(--brass);border-radius:999px;background:rgba(255,255,255,.55);transition:background .2s,color .2s}
+.awards-jump a:hover{background:var(--ink);color:var(--brass-light)}
+.awards-sub{margin-top:72px;scroll-margin-top:206px}
+.awards-sub-head{margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.awards-sub-head .awards-kicker{margin-bottom:6px}
+.awards-sub-head h2{font-size:clamp(1.7rem,3vw,2.3rem);color:var(--ink);margin:0 0 8px}
+.awards-sub-head p{margin:0;color:var(--paper-text-soft);font-size:17px;line-height:1.55;max-width:760px}
+.rules-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.rules-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rule-card{background:#f7f4ea;border:1px solid var(--rule);border-top:3px solid var(--brass);padding:28px 28px 26px;box-shadow:0 12px 28px rgba(20,33,61,.07);border-radius:14px}
+.rule-card h3{font-size:1.25rem;color:var(--ink);margin:0 0 14px}
+.rule-list{list-style:none;margin:0;padding:0}
+.rule-list li{position:relative;padding-left:22px;margin-bottom:11px;font-size:16px;line-height:1.55;color:var(--paper-text)}
+.rule-list li:last-child{margin-bottom:0}
+.rule-list li::before{content:"\25C6";position:absolute;left:0;top:3px;color:var(--brass);font-size:9px}
+.spec-list{list-style:none;margin:0 0 20px;padding:0;border-top:1px solid var(--rule)}
+.spec-list li{display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+.spec-list .k{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--paper-text-soft);padding-top:3px}
+.spec-list .v{color:var(--ink);text-align:right;font-weight:600}
+.dl-row{margin-top:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.dl-note{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-text-soft)}
+.faq-list{border-top:1px solid var(--rule)}
+.faq-list details{border-bottom:1px solid var(--rule);padding:0}
+.faq-list summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;position:relative;font-family:'Fraunces',serif;font-size:1.12rem;font-weight:600;color:var(--ink)}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";position:absolute;right:6px;top:16px;font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--brass);transition:transform .2s}
+.faq-list details[open] summary::after{content:"\2212"}
+.faq-list details p{margin:0;padding:0 40px 22px 0;font-size:16.5px;line-height:1.65;color:var(--paper-text-soft)}
+@media(max-width:860px){.rules-grid,.rules-grid.two{grid-template-columns:1fr}.awards-sub{margin-top:54px;scroll-margin-top:165px}.rule-card{padding:24px 22px}.spec-list li{flex-direction:column;gap:2px}.spec-list .v{text-align:left}.faq-list summary{font-size:1.02rem}}
+</style>
+</head>
 <body class="inner-page">
 <div class="top-banner">
 <div class="top-banner-inner">
@@ -114,6 +146,140 @@
 
 <div class="awards-note reveal">
   <strong>Selection:</strong> Awardees will be selected by a panel of experts based on the quality, originality, scientific merit, and clarity of their presentations.
+</div>
+
+<nav class="awards-jump reveal" aria-label="On this page">
+  <a href="#eligibility">Eligibility</a>
+  <a href="#poster-guidelines">Poster guidelines</a>
+  <a href="#oral-guidelines">Oral guidelines</a>
+  <a href="#faqs">FAQs</a>
+</nav>
+
+<div class="awards-sub" id="eligibility">
+  <div class="awards-sub-head reveal">
+    <span class="awards-kicker">Who can win</span>
+    <h2>Eligibility Criteria</h2>
+    <p>The Best Paper and Best Poster awards are open to participants who meet the criteria below.</p>
+  </div>
+  <div class="rules-grid" style="grid-template-columns:1fr;max-width:860px;margin-inline:auto">
+    <div class="rule-card reveal">
+      <h3>Eligibility</h3>
+      <ul class="rule-list">
+        <li>Full-length, unpublished and original research work must be submitted to be considered for the Best Paper award.</li>
+        <li>The participant must bring a hard or soft copy of the final manuscript.</li>
+        <li>The decision will be made on the basis of the originality/novelty of the research work and presentation/documentation skills.</li>
+        <li>The presenter must be the first author and must present in person at the conference.</li>
+        <li>Each person can win at most one award and can enter only one category (oral or poster) for award consideration.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="awards-sub" id="poster-guidelines">
+  <div class="awards-sub-head reveal">
+    <span class="awards-kicker">Poster presentations</span>
+    <h2>Poster Guidelines</h2>
+    <p>Please prepare your poster to the specifications below. A ready-to-use template in the conference colours is available for download.</p>
+  </div>
+  <div class="rules-grid two">
+    <div class="rule-card reveal">
+      <h3>Poster specifications</h3>
+      <ul class="spec-list">
+        <li><span class="k">Size</span><span class="v">A0 (841 &times; 1189 mm)</span></li>
+        <li><span class="k">Orientation</span><span class="v">Portrait</span></li>
+        <li><span class="k">Language</span><span class="v">English</span></li>
+        <li><span class="k">Title</span><span class="v">60 pt or larger</span></li>
+        <li><span class="k">Headings</span><span class="v">40 pt or larger</span></li>
+        <li><span class="k">Body text</span><span class="v">28 pt or larger</span></li>
+        <li><span class="k">Images</span><span class="v">300 dpi or higher</span></li>
+      </ul>
+      <div class="dl-row">
+        <a class="btn btn-primary" href="RAMA2026_Poster_Template_A0.pptx" download>Download poster template</a>
+        <span class="dl-note">PowerPoint (.pptx) &middot; A0 portrait</span>
+      </div>
+    </div>
+    <div class="rule-card reveal">
+      <h3>Content and display</h3>
+      <ul class="rule-list">
+        <li>Include the title, all authors with affiliations, and the presenter&rsquo;s email address.</li>
+        <li>Suggested sections: abstract, introduction and objectives, methodology, results and discussion, conclusions, references and acknowledgements.</li>
+        <li>Use figures, tables and diagrams in preference to long paragraphs, and keep text concise.</li>
+        <li>Bring a printed copy of your poster. Posters are displayed during the scheduled poster session.</li>
+        <li>The presenting author must stand by the poster during the session, and during judging, to answer questions.</li>
+        <li>Keep the conference logos and footer in the template unchanged.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="awards-sub" id="oral-guidelines">
+  <div class="awards-sub-head reveal">
+    <span class="awards-kicker">Oral presentations</span>
+    <h2>Oral Presentation Guidelines</h2>
+    <p>Please follow these guidelines so that every session runs smoothly and on time.</p>
+  </div>
+  <div class="rules-grid two">
+    <div class="rule-card reveal">
+      <h3>Preparing your talk</h3>
+      <ul class="rule-list">
+        <li>Presentations are delivered in English.</li>
+        <li>Each talk is given a fixed time slot, including time for questions. The duration will be announced in the final programme.</li>
+        <li>Prepare slides in PowerPoint (.pptx) or PDF format. Start with a title slide showing the title, authors and affiliations.</li>
+        <li>Keep slides clear and uncluttered, with large, legible text, and present the main result and its significance.</li>
+        <li>Rehearse your talk so that you finish within the allotted time.</li>
+      </ul>
+    </div>
+    <div class="rule-card reveal">
+      <h3>On the day</h3>
+      <ul class="rule-list">
+        <li>Bring your slides on a USB drive and upload them to the session computer before your session begins.</li>
+        <li>Report to the session chair at least 10 minutes before your session starts.</li>
+        <li>Session chairs will keep to the schedule strictly and may stop a talk that overruns.</li>
+        <li>Award judges will attend the oral sessions. Only in-person presentations are considered for the Best Paper Awards.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="awards-sub" id="faqs">
+  <div class="awards-sub-head reveal">
+    <span class="awards-kicker">Questions</span>
+    <h2>Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-list reveal">
+    <details>
+      <summary>Can I compete if I am presenting online?</summary>
+      <p>No. Although the conference runs in hybrid mode, only presenters who present in person are considered for the Best Paper and Best Poster awards.</p>
+    </details>
+    <details>
+      <summary>Can I enter both the oral and poster categories?</summary>
+      <p>No. Each person may enter one category only and can receive at most one award.</p>
+    </details>
+    <details>
+      <summary>Who counts as an early-career researcher?</summary>
+      <p>Researchers within 5 years of being awarded their PhD. Master&rsquo;s and PhD students are also eligible.</p>
+    </details>
+    <details>
+      <summary>Do I need to be registered to be considered?</summary>
+      <p>Yes. The presenter must be a registered participant and must have paid the registration fee.</p>
+    </details>
+    <details>
+      <summary>Can a co-author receive the prize?</summary>
+      <p>The cash prize goes to the presenting author, who must be the first author. Co-authors receive certificates of recognition.</p>
+    </details>
+    <details>
+      <summary>Is it compulsory to use the poster template?</summary>
+      <p>The template is recommended but not compulsory. Whatever design you use, the poster must be A0 portrait and meet the minimum font sizes listed above.</p>
+    </details>
+    <details>
+      <summary>When will the winners be announced?</summary>
+      <p>Winners are announced and awards presented at the closing session. Winners must be present to receive their award.</p>
+    </details>
+    <details>
+      <summary>Who do I contact with questions?</summary>
+      <p>Write to us at <a href="mailto:rama2026@nsut.ac.in">rama2026@nsut.ac.in</a>.</p>
+    </details>
+  </div>
 </div>
 </div>
 </section><button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">↑<span>Top</span></button>
