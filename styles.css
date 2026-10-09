@@ -84,3 +84,55 @@
 .mini-symposium-faculty{font-size:.92rem}
 .gala-callout{padding:16px}
 }
+
+/* Desktop nav: keep all items on one row now that Symposiums and Publications are included */
+@media(min-width:861px){
+nav.links{flex-wrap:nowrap;gap:14px}
+nav.links a,nav.links .nav-dropdown-toggle{font-size:12px;letter-spacing:.03em;white-space:nowrap}
+nav.links .nav-abstract,nav.links .nav-cta{padding:8px 12px !important}
+.nav-inner{padding:0 20px}
+.logo b,.logo-year{font-size:.95em}
+}
+@media(min-width:861px) and (max-width:1120px){
+nav.links{gap:10px}
+nav.links a,nav.links .nav-dropdown-toggle{font-size:11px;letter-spacing:.01em}
+nav.links .nav-abstract,nav.links .nav-cta{padding:7px 9px !important}
+.logo-separator,.logo-year{display:none}
+}
+@media(min-width:861px) and (max-width:1020px){
+nav.links{gap:7px}
+nav.links a,nav.links .nav-dropdown-toggle{font-size:10.5px;letter-spacing:0}
+nav.links .nav-abstract,nav.links .nav-cta{padding:6px 7px !important}
+.nav-inner{padding:0 12px}
+.logo b{display:none}
+}
+
+/* Links in the light-background pointer notes (Publications / Submit Abstract) */
+.submission-note a.journal-link{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:3px}
+.submission-note a.journal-link:hover{color:var(--brass)}
+
+/* Mobile: fee tables become stacked cards (no sideways scrolling) */
+.fee-table td.attendee-repeat{display:none}
+@media(max-width:700px){
+.fee-table-wrap{border:0;overflow:visible}
+table.fee-table{min-width:0;width:100%;display:block}
+.fee-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fee-table tbody{display:block}
+.fee-table tbody tr{display:block;margin-bottom:16px;border:1px solid var(--rule);background:#fff;box-shadow:0 6px 16px rgba(20,33,61,.06)}
+.fee-table tbody td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 16px;text-align:right;border-top:1px solid var(--rule);border-left:0;border-right:0}
+.fee-table tbody td::before{content:attr(data-label);flex:0 0 auto;max-width:55%;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--paper-text-soft)}
+.fee-table tbody td.sub{display:block;text-align:left;border-top:0;background:var(--ink);color:var(--vellum);font-family:'Fraunces',serif;font-weight:600;font-size:17px}
+.fee-table tbody td.sub::before{display:none}
+.fee-table tbody td.attendee-fee,.fee-table tbody td.attendee-repeat{display:flex;text-align:right}
+}
+
+/* Larger tap areas for small text links on touch screens */
+@media(max-width:860px){
+.other-journals-list li{margin:0}
+.other-journals-list .journal-link,.journal-link,.footer-email,.footer-conveners a,.footer-links a,.speaker-profile-link,.contact-link,.attraction-card a{display:inline-block;padding:7px 0;min-height:32px}
+.footer-links a{display:block}
+}
+@media(max-width:600px){
+.announcement-text{font-size:11.5px !important}
+.announcement-label{font-size:10px !important}
+}
