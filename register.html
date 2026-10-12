@@ -10,6 +10,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
+<link href="register.css" rel="stylesheet"/>
 <link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
@@ -31,7 +32,7 @@
     }
   ]
 }</script></head>
-<body class="inner-page">
+<body class="inner-page page-register">
 <div class="top-banner">
 <div class="top-banner-inner">
 <div class="top-banner-logos">
@@ -73,19 +74,75 @@
 <span></span><span></span><span></span>
 </button>
 </div>
-</header><section id="register">
+</header><main>
+<!-- ===== Hero ===== -->
+<section class="rg-hero" aria-labelledby="rg-title">
 <div class="wrap">
-<div class="section-head">
+<nav aria-label="Breadcrumb" class="rg-crumbs">
+<a href="index.html">Home</a>
+<svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 2l4 4-4 4"/></svg>
+<span aria-current="page">Registration</span>
+</nav>
+<div class="rg-hero-grid">
 <div>
-<h2>Registration</h2>
+<span class="rg-eyebrow">RAM&amp;A 2026 · NSUT, New Delhi</span>
+<h1 id="rg-title">Secure your place at <em>RAM&amp;A&nbsp;2026</em></h1>
+<p class="rg-lede">Choose your delegate category, review the early-bird fees, and complete the registration form to confirm your place.</p>
+<div class="rg-actions">
+<a class="btn btn-primary" href="https://forms.gle/7w5G53Ys427PZCkbA">Register now
+<svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 3.5L13.5 8 9 12.5"/></svg></a>
+<a class="btn btn-ghost" href="#fees">View fees</a>
+</div>
+</div>
+<aside class="rg-deadline" aria-label="Early-bird deadline">
+<span class="rg-deadline-tag"><i aria-hidden="true"></i>Early-Bird Pricing</span>
+<p class="rg-deadline-date">Until November 15, 2026</p>
+<p class="rg-deadline-sub">Register before this date to lock in the listed rates.</p>
+<div class="rg-daysleft" id="rgDaysLeft" aria-live="polite"><b>0</b><span></span></div>
+</aside>
+</div>
+</div>
+<div class="rg-facts">
+<div class="wrap">
+<ul>
+<li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><small>Conference</small>December 2026</span></li>
+<li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Venue</small>NSUT, New Delhi</span></li>
+<li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.5a3 3 0 010 5.8M18 14.3c1.9.8 3 2.7 3 5.7"/></svg><span><small>Attend as</small>Presenter or attendee</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ===== Sticky in-page navigation ===== -->
+<div class="rg-subnav">
+<div class="wrap">
+<nav aria-label="On this page"><ul>
+<li><a class="rg-tab" href="#fees">Fees</a></li>
+<li><a class="rg-tab" href="#indian">Indian delegates</a></li>
+<li><a class="rg-tab" href="#overseas">Overseas delegates</a></li>
+<li><a class="rg-tab" href="#accommodation">Accommodation</a></li>
+</ul></nav>
+<a class="btn btn-primary rg-mini-cta" href="https://forms.gle/7w5G53Ys427PZCkbA">Register now</a>
+</div>
+</div>
+
+<!-- ===== Fees ===== -->
+<section class="rg-section" id="fees" aria-labelledby="fees-title">
+<div class="wrap">
+<div class="rg-head">
+<span class="rg-kicker">01 · Fees</span>
+<h2 id="fees-title">Registration fees</h2>
 <p>Fees are categorised by delegate type and presentation format.</p>
 </div>
-</div>
+
 <div class="earlybird-note reveal">
+<span class="rg-eb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2.5h6"/></svg></span>
 <span class="eb-tag">Early-Bird Pricing</span>
 <p>The fees listed below are Early-Bird rates, valid through <b>November 15, 2026</b>. Register before this date to lock in these rates — fees are subject to increase afterward.</p>
 </div>
-<h3 class="sub-heading">Indian Delegates</h3>
+
+<div id="indian" style="scroll-margin-top:calc(var(--fixed-bars-h,206px) + 76px)">
+<div class="rg-group"><h3 class="sub-heading">Indian Delegates <span class="rg-currency">INR ₹</span></h3></div>
 <div class="fee-table-wrap reveal">
 <table class="fee-table">
 <thead>
@@ -122,7 +179,10 @@
 </tbody>
 </table>
 </div>
-<h3 class="sub-heading" style="margin-top:48px;">Overseas Delegates</h3>
+</div>
+
+<div id="overseas" style="margin-top:64px;scroll-margin-top:calc(var(--fixed-bars-h,206px) + 76px)">
+<div class="rg-group"><h3 class="sub-heading">Overseas Delegates <span class="rg-currency">USD $</span></h3></div>
 <div class="fee-table-wrap reveal">
 <table class="fee-table">
 <thead>
@@ -152,12 +212,57 @@
 </tbody>
 </table>
 </div>
-<p class="fee-note">Fees include all sessions, conference materials, lunches, and the conference banquet. Students must present a valid ID at check-in.</p>
+</div>
+</div>
+</section>
+
+<!-- ===== Inclusions + accommodation ===== -->
+<section class="rg-section" id="accommodation" aria-labelledby="stay-title">
+<div class="wrap">
+<div class="rg-head">
+<span class="rg-kicker">02 · What to know</span>
+<h2 id="stay-title">Inclusions &amp; accommodation</h2>
+</div>
+<div class="rg-info-grid">
+<div class="rg-card rg-included reveal">
+<h3 class="rg-card-title"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.8 2.8L16.2 9.5"/></svg>Included in your fee</h3>
+<ul class="rg-check">
+<li><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4L16 6"/></svg>All sessions</li>
+<li><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4L16 6"/></svg>Conference materials</li>
+<li><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4L16 6"/></svg>Lunches</li>
+<li><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4L16 6"/></svg>The conference banquet</li>
+</ul>
+<p class="fee-note"><b>Students must present a valid ID at check-in.</b></p>
+</div>
+
+<div class="rg-card rg-stay reveal" role="note">
+<span class="rg-stay-badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-9M3 14h18v4M21 14v-2.5A2.5 2.5 0 0018.5 9H11v5"/><circle cx="7" cy="11.5" r="1.7"/></svg>Please note</span>
+<h3>Accommodation is not included in the registration fees</h3>
+<p>For on-campus accommodation or discounted hotel booking, visit <a href="venue.html">here</a>.</p>
+<a class="rg-stay-link" href="venue.html">Venue &amp; stay options
+<svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 3.5L13.5 8 9 12.5"/></svg></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== Final call to action ===== -->
+<section class="rg-final" id="register-now" aria-labelledby="cta-title">
+<div class="wrap">
+<div class="rg-cta-band reveal">
+<div>
+<h2 id="cta-title">Ready to join RAM&amp;A 2026?</h2>
+<p>Complete the registration form to confirm your place — early-bird rates apply through November 15, 2026.</p>
+</div>
 <div class="reg-cta">
-<a class="btn btn-primary" href="https://forms.gle/7w5G53Ys427PZCkbA">Register now</a>
+<a class="btn btn-primary" href="https://forms.gle/7w5G53Ys427PZCkbA">Register now
+<svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h11M9 3.5L13.5 8 9 12.5"/></svg></a>
 </div>
 </div>
-</section><button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">↑<span>Top</span></button>
+</div>
+</section>
+</main>
+<button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">↑<span>Top</span></button>
 <footer>
 <div class="wrap">
 <div class="footer-grid">
@@ -201,6 +306,6 @@
 <span>RAM&amp;A 2026 · New Delhi</span>
 </div>
 </div>
-</footer><script defer="True" src="site.js"></script><script defer src="performance.js"></script>
+</footer><script defer="True" src="site.js"></script><script defer src="performance.js"></script><script defer src="register.js"></script>
 </body>
 </html>
