@@ -1,0 +1,37 @@
+/* RAM&A 2026 — header/nav fix
+   Paste this at the very END of styles.css (after all existing rules).
+   Cause: the nav now has 11 items (Symposiums + Publications were added) and
+   no longer fits on one row between ~861px and ~1500px, so "Contact" /
+   "Register" wrap onto a second row and spill over the announcement bar. */
+
+/* 1) Laptops / desktops (1240px and wider): tighten spacing so everything stays on one row */
+@media(min-width:1240px){
+  header.site-nav .nav-inner{padding:0 18px}
+  header.site-nav nav.links{flex-wrap:nowrap;gap:12px}
+  header.site-nav nav.links>a,
+  header.site-nav .nav-dropdown-toggle{font-size:12px;letter-spacing:.02em;white-space:nowrap}
+  header.site-nav .nav-abstract,
+  header.site-nav .nav-cta{padding:8px 12px !important}
+}
+
+/* 2) Tablets / small laptops (861px–1239px): not enough room for 11 links,
+      so use a hamburger dropdown (same button and JS as the phone menu) */
+@media(min-width:861px) and (max-width:1239px){
+  header.site-nav .menu-toggle{display:flex;flex-direction:column;align-items:center;justify-content:center;width:44px;height:44px;padding:8px;background:transparent;border:0}
+  header.site-nav .menu-toggle span{display:block;width:24px;height:2px;margin:3px 0;background:var(--brass-light);transition:transform .2s ease,opacity .2s ease}
+  body.nav-open header.site-nav .menu-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  body.nav-open header.site-nav .menu-toggle span:nth-child(2){opacity:0}
+  body.nav-open header.site-nav .menu-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+  header.site-nav nav.links{position:absolute;top:100%;right:0;left:auto;width:min(360px,100vw);max-height:calc(100vh - 260px);overflow-y:auto;flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;gap:0;padding:10px 22px 22px;background:var(--ink);border:1px solid var(--ink-line);border-top:0;box-shadow:0 18px 30px rgba(10,16,30,.35);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease,visibility .2s}
+  header.site-nav nav.links.open{opacity:1;visibility:visible;transform:none}
+  header.site-nav nav.links>a,
+  header.site-nav nav.links>.nav-dropdown{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px;white-space:normal}
+  header.site-nav nav.links .nav-abstract,
+  header.site-nav nav.links .nav-cta{display:block;text-align:center;margin:12px 0 0;padding:11px 14px !important;border-bottom:1px solid var(--brass)}
+  header.site-nav nav.links .nav-dropdown{display:block}
+  header.site-nav .nav-dropdown-toggle{width:100%;text-align:left;font-size:14px}
+  header.site-nav .nav-dropdown-menu{position:static;min-width:0;margin-top:8px;padding:0 0 0 14px;background:transparent;border:0;box-shadow:none;opacity:1;visibility:visible;transform:none;display:none}
+  header.site-nav .nav-dropdown.is-open .nav-dropdown-menu{display:block}
+  header.site-nav .nav-dropdown-menu a{padding:9px 0}
+}
