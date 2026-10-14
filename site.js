@@ -1,20 +1,3 @@
-(function(){const nl=document.getElementById('navLinks');if(!nl)return;const want='index.html,committee.html,speakers.html,awards.html,schedule.html,symposiums.html,publications.html,abstract-submission.html,register.html,venue.html,attractions.html,contact.html';if([...nl.querySelectorAll('a')].map(a=>a.getAttribute('href')).join(',')===want)return;nl.innerHTML=`<a data-page="home" href="index.html">Home</a>
-<a data-page="committee" href="committee.html">Committee</a>
-<a data-page="speakers" href="speakers.html">Speakers</a>
-<a data-page="awards" href="awards.html">Awards</a>
-<a data-page="schedule" href="schedule.html">Schedule</a>
-<a data-page="symposiums" href="symposiums.html">Symposiums</a>
-<a data-page="publications" href="publications.html">Publications</a>
-<a class="nav-abstract" data-page="abstract" href="abstract-submission.html">Submit Abstract</a>
-<a class="nav-cta" data-page="register" href="register.html">Register</a>
-<div class="nav-dropdown" data-page-group="visit">
-<button aria-expanded="false" aria-haspopup="true" class="nav-dropdown-toggle" type="button">Visit Info <span aria-hidden="true" class="dropdown-arrow">▾</span></button>
-<div class="nav-dropdown-menu">
-<a data-page="venue" href="venue.html">Venue</a>
-<a data-page="sightseeing" href="attractions.html">Sightseeing</a>
-</div>
-</div>
-<a class="nav-contact" data-page="contact" href="contact.html"><span aria-hidden="true" class="nav-contact-icon">✉</span> Contact</a>`;})();
 (function(){const banner=document.querySelector('.top-banner');const nav=document.querySelector('header.site-nav');const navLinks=document.querySelector('nav.links');const hero=document.querySelector('.hero');if(!banner||!nav)return;function isMobile(){return window.innerWidth<=860;}
 function apply(){const bannerH=banner.offsetHeight;const announcement=document.querySelector('.announcement-banner');const announcementH=announcement?announcement.offsetHeight:0;const navTop=bannerH+announcementH;if(announcement)announcement.style.top=bannerH+'px';nav.style.top=navTop+'px';const navH=nav.offsetHeight;const totalH=bannerH+announcementH+navH;document.documentElement.style.setProperty('--fixed-bars-h',totalH+'px');if(hero){const extra=isMobile()?40:60;hero.style.paddingTop=(totalH+extra)+'px';}
 if(navLinks){if(isMobile()){navLinks.style.setProperty('--mobile-nav-panel-top',navTop+'px');navLinks.style.top=navTop+'px';navLinks.style.height='calc(100vh - '+navTop+'px)';}else{navLinks.style.removeProperty('--mobile-nav-panel-top');navLinks.style.top='';navLinks.style.height='';}}

@@ -37,90 +37,110 @@
 @media(max-width:400px){.speakers-v2 .speaker-photo{width:112px}.speakers-v2 .speaker-card h4{font-size:15px}.speakers-v2 .speaker-card .affil{font-size:12.5px}.speakers-v2 .speaker-card .talk{font-size:12.5px}}
 
 .campus-stay{margin:4px 0 58px}.campus-stay-card{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:28px;align-items:center;margin-top:22px;padding:26px 28px;border:1px solid var(--brass);border-left:4px solid var(--brass);border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:0 16px 40px rgba(0,0,0,.18)}.campus-stay-price{display:flex;flex-direction:column;gap:6px;padding-right:28px;border-right:1px solid var(--ink-line)}.campus-stay-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-light)}.campus-stay-amount{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--vellum);line-height:1.1}.campus-stay-points{list-style:none;margin:0;padding:0;display:grid;gap:10px}.campus-stay-points li{position:relative;padding-left:22px;color:var(--vellum-2);font-size:16px;line-height:1.55}.campus-stay-points li::before{content:"◆";position:absolute;left:0;top:5px;color:var(--brass-light);font-size:9px}@media(max-width:760px){.campus-stay-card{grid-template-columns:1fr;gap:18px;padding:22px 20px}.campus-stay-price{padding-right:0;padding-bottom:16px;border-right:0;border-bottom:1px solid var(--ink-line)}.campus-stay-amount{font-size:1.7rem}.campus-stay-points li{font-size:14.5px}}
-.award-named-chip{display:flex;align-items:center;gap:14px;margin:0 0 22px;padding:14px 16px;border:1px solid var(--brass);border-left:4px solid var(--brass);border-radius:8px;background:linear-gradient(135deg,#14213d 0,#1f2e52 100%);box-shadow:0 8px 20px rgba(20,33,61,.16)}.award-named-chip-star{flex:0 0 auto;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,#f2d77d,#b08d45);color:var(--ink);font-size:16px;line-height:1}.award-named-chip-title{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;line-height:1.2;color:#fff6cf}.award-named-chip-sub{margin-top:2px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-light)}@media(max-width:768px){.award-card .award-named-chip-title{font-size:1.05rem !important}}
 
-/* ===== Header / nav fit (11 items) ===== */
-@media(min-width:1200px){
-  header.site-nav .nav-inner{padding:0 18px}
-  header.site-nav nav.links{flex-wrap:nowrap;gap:12px}
-  header.site-nav nav.links>a,
-  header.site-nav .nav-dropdown-toggle{font-size:12px;letter-spacing:.02em;white-space:nowrap}
-  header.site-nav .nav-abstract,
-  header.site-nav .nav-cta{padding:8px 12px !important}
-}
-@media(min-width:861px) and (max-width:1199px){
-  header.site-nav .menu-toggle{display:flex;flex-direction:column;align-items:center;justify-content:center;width:44px;height:44px;padding:8px;background:transparent;border:0}
-  header.site-nav .menu-toggle span{display:block;width:24px;height:2px;margin:3px 0;background:var(--brass-light);transition:transform .2s ease,opacity .2s ease}
-  body.nav-open header.site-nav .menu-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-  body.nav-open header.site-nav .menu-toggle span:nth-child(2){opacity:0}
-  body.nav-open header.site-nav .menu-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-  header.site-nav nav.links{position:absolute;top:100%;right:0;left:auto;width:min(360px,100vw);max-height:calc(100vh - 220px);overflow-y:auto;flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;gap:0;padding:10px 22px 22px;background:var(--ink);border:1px solid var(--ink-line);border-top:0;box-shadow:0 18px 30px rgba(10,16,30,.35);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease,visibility .2s}
-  header.site-nav nav.links.open{opacity:1;visibility:visible;transform:none}
-  header.site-nav nav.links>a,
-  header.site-nav nav.links>.nav-dropdown{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px;white-space:normal}
-  header.site-nav nav.links .nav-abstract,
-  header.site-nav nav.links .nav-cta{display:block;text-align:center;margin:12px 0 0;padding:11px 14px !important;border-bottom:1px solid var(--brass)}
-  header.site-nav nav.links .nav-dropdown{display:block}
-  header.site-nav .nav-dropdown-toggle{width:100%;text-align:left;font-size:14px}
-  header.site-nav .nav-dropdown-menu{position:static;min-width:0;margin-top:8px;padding:0 0 0 14px;background:transparent;border:0;box-shadow:none;opacity:1;visibility:visible;transform:none;display:none}
-  header.site-nav .nav-dropdown.is-open .nav-dropdown-menu{display:block}
-  header.site-nav .nav-dropdown-menu a{padding:9px 0}
+/* Symposium pie chart + topic dropdowns */
+.sym-pie-wrap{margin:0 0 1.4rem;padding:1.3rem 1.2rem 1rem;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.sym-pie-title{margin:0 0 1rem;text-align:center;color:#f0cf65;font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.sym-pie-body{display:grid;grid-template-columns:minmax(200px,280px) minmax(0,1fr);gap:1.8rem;align-items:center}
+#sym-pie svg{width:100%;height:auto;display:block;overflow:visible}
+.sym-slice{stroke:#0b2d4d;stroke-width:1.5;transition:transform .2s ease,opacity .2s ease;transform-origin:100px 100px;cursor:pointer}
+.sym-slice.is-hl{transform:scale(1.04)}
+.sym-legend{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
+.sym-legend li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:.65rem;align-items:center;padding:.4rem .55rem;border-radius:8px;color:#fff;font-size:.88rem;line-height:1.35;transition:background .2s}
+.sym-legend li.is-hl{background:rgba(255,255,255,.1)}
+.sym-legend i{width:12px;height:12px;border-radius:3px}
+.sym-legend b{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:#f6d978;white-space:nowrap}
+.sym-pie-total{margin:.8rem 0 0;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:rgba(255,255,255,.75)}
+.sym-details{min-width:0}
+.sym-details summary{cursor:pointer;list-style:none;position:relative;padding-right:1.6rem}
+.sym-details summary::-webkit-details-marker{display:none}
+.sym-details summary::after{content:"";position:absolute;right:.2rem;top:.5em;width:8px;height:8px;border-right:2px solid #f0cf65;border-bottom:2px solid #f0cf65;transform:rotate(45deg);transition:transform .25s ease}
+.sym-details[open] summary::after{transform:rotate(225deg);top:.7em}
+.sym-details summary:hover,.sym-details summary:focus-visible{color:#f6d978}
+.sym-topics{margin:.7rem 0 .2rem;padding:.7rem .9rem .7rem 1.9rem;border-left:3px solid var(--sym-color,#d4af37);background:rgba(0,0,0,.18);border-radius:0 8px 8px 0;font-weight:400;color:rgba(255,255,255,.9);font-size:.92rem;line-height:1.5}
+.sym-topics li{margin:.2rem 0}
+.sym-stat{grid-column:1;grid-row:3;display:flex;align-items:center;gap:.5rem;margin-top:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:rgba(255,255,255,.78)}
+.sym-dot{width:10px;height:10px;border-radius:50%;background:var(--sym-color,#d4af37);flex:none}
+@media(max-width:700px){.sym-pie-body{grid-template-columns:1fr;gap:1rem}#sym-pie{max-width:240px;margin:0 auto}.sym-legend li{font-size:.82rem}.sym-stat{grid-column:1;grid-row:auto}}
+.mini-symposium-list+.sym-pie-wrap{margin:1.4rem 0 0}
+
+/* Mobile polish: schedule page */
+@media(hover:none){.mini-symposium-card:hover{transform:none}}
+.mini-symposium-card,.mini-symposium-faculty{min-width:0;overflow-wrap:anywhere}
+@media(max-width:700px){
+.section-head{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:32px;padding-bottom:16px}
+.section-head h2{white-space:normal}
+.section-head p{font-size:16px;margin-top:4px}
+.mini-symposiums{margin:1.4rem 0;padding:1rem .8rem;border-radius:14px}
+.mini-symposiums-head p{white-space:normal;font-size:.95rem;max-width:36ch}
+.mini-symposium-card{padding:.9rem}
+.sym-details summary{display:flex;align-items:center;min-height:44px;padding:.3rem 1.8rem .3rem 0}
+.sym-details summary::after,.sym-details[open] summary::after{top:50%}
+.sym-details summary::after{margin-top:-6px}
+.sym-details[open] summary::after{margin-top:-2px}
+.sym-topics{padding:.6rem .7rem .6rem 1.5rem;font-size:.9rem}
+.sym-pie-wrap{padding:1.1rem .8rem .8rem}
+.sym-legend li{padding:.5rem .4rem;font-size:.84rem}
+.mini-symposium-faculty{font-size:.92rem}
+.gala-callout{padding:16px}
 }
 
-/* ===== Awards page: compact heading, named-award blocks, above-the-fold layout ===== */
-section.awards{padding:26px 0 72px}
-.awards .awards-hero{grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-bottom:18px;padding:14px 24px}
-.awards .awards-hero-mark{width:38px;height:38px;font-size:18px;box-shadow:inset 0 0 0 4px rgba(184,145,55,.08)}
-.awards .awards-hero h2{margin:0;font-size:clamp(1.45rem,2.6vw,1.95rem);line-height:1.15}
-.awards .awards-grid{gap:20px}
-.awards .award-card{padding:24px 28px 20px}
-.awards .award-card-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.awards .award-card-head .award-icon{flex:0 0 auto;width:42px;height:42px;font-size:20px}
-.awards .award-card-head .award-label{margin:0 0 3px}
-.awards .award-card-head h3{margin:0;font-size:1.45rem;line-height:1.15}
-.awards .award-named-list{display:grid;gap:12px;margin:0 0 18px}
-.awards .award-named-chip{margin:0;padding:15px 18px;min-height:78px}
-.awards .award-named-chip-star{width:38px;height:38px;font-size:18px}
-.awards .award-named-chip-title{font-size:1.3rem}
-.awards .award-card p{font-size:15.5px;line-height:1.55;margin-bottom:16px}
-.awards .award-card li{padding:11px 0}
-.awards .awards-note{margin-top:18px}
+/* Desktop nav: keep all items on one row now that Symposiums and Publications are included */
+@media(min-width:861px){
+nav.links{flex-wrap:nowrap;gap:14px}
+nav.links a,nav.links .nav-dropdown-toggle{font-size:12px;letter-spacing:.03em;white-space:nowrap}
+nav.links .nav-abstract,nav.links .nav-cta{padding:8px 12px !important}
+.nav-inner{padding:0 20px}
+.logo b,.logo-year{font-size:.95em}
+}
+@media(min-width:861px) and (max-width:1120px){
+nav.links{gap:10px}
+nav.links a,nav.links .nav-dropdown-toggle{font-size:11px;letter-spacing:.01em}
+nav.links .nav-abstract,nav.links .nav-cta{padding:7px 9px !important}
+.logo-separator,.logo-year{display:none}
+}
+@media(min-width:861px) and (max-width:1020px){
+nav.links{gap:7px}
+nav.links a,nav.links .nav-dropdown-toggle{font-size:10.5px;letter-spacing:0}
+nav.links .nav-abstract,nav.links .nav-cta{padding:6px 7px !important}
+.nav-inner{padding:0 12px}
+.logo b{display:none}
+}
+
+/* Links in the light-background pointer notes (Publications / Submit Abstract) */
+.submission-note a.journal-link{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:3px}
+.submission-note a.journal-link:hover{color:var(--brass)}
+
+/* Mobile: fee tables become stacked cards (no sideways scrolling) */
+.fee-table td.attendee-repeat{display:none}
+@media(max-width:700px){
+.fee-table-wrap{border:0;overflow:visible}
+table.fee-table{min-width:0;width:100%;display:block}
+.fee-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fee-table tbody{display:block}
+.fee-table tbody tr{display:block;margin-bottom:16px;border:1px solid var(--rule);background:#fff;box-shadow:0 6px 16px rgba(20,33,61,.06)}
+.fee-table tbody td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 16px;text-align:right;border-top:1px solid var(--rule);border-left:0;border-right:0}
+.fee-table tbody td::before{content:attr(data-label);flex:0 0 auto;max-width:55%;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--paper-text-soft)}
+.fee-table tbody td.sub{display:block;text-align:left;border-top:0;background:var(--ink);color:var(--vellum);font-family:'Fraunces',serif;font-weight:600;font-size:17px}
+.fee-table tbody td.sub::before{display:none}
+.fee-table tbody td.attendee-fee,.fee-table tbody td.attendee-repeat{display:flex;text-align:right}
+}
+
+/* Larger tap areas for small text links on touch screens */
 @media(max-width:860px){
-  section.awards{padding:20px 0 56px}
-  .awards .awards-hero{grid-template-columns:auto 1fr;padding:12px 18px}
-  .awards .award-card{padding:20px 18px 16px}
-  .awards .award-named-chip-title{font-size:1.12rem !important}
+.other-journals-list li{margin:0}
+.other-journals-list .journal-link,.journal-link,.footer-email,.footer-conveners a,.footer-links a,.speaker-profile-link,.contact-link,.attraction-card a{display:inline-block;padding:7px 0;min-height:32px}
+.footer-links a{display:block}
+}
+@media(max-width:600px){
+.announcement-text{font-size:11.5px !important}
+.announcement-label{font-size:10px !important}
 }
 
-/* ===== Symposiums page: pie chart sizing + legend ===== */
-.sym-pie-wrap{margin-top:28px;padding:24px 28px 26px;border:1px solid rgba(212,175,55,.42);border-radius:16px;background:rgba(255,255,255,.06)}
-.sym-pie-title{margin:0 0 18px;text-align:center;color:#fff;font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;line-height:1.25}
-.sym-pie-body{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
-#sym-pie{flex:0 0 auto;width:clamp(190px,24vw,260px);max-width:100%}
-#sym-pie svg{display:block;width:100%;height:auto}
-.sym-slice{cursor:pointer;transition:filter .2s ease,transform .2s ease;transform-origin:100px 100px}
-.sym-slice.is-hl{filter:brightness(1.12);transform:scale(1.035)}
-.sym-legend{list-style:none;margin:0;padding:0;display:grid;gap:9px;flex:1 1 320px;max-width:600px;text-align:left}
-.sym-legend li{display:flex;align-items:flex-start;gap:11px;color:rgba(255,255,255,.86);font-size:14.5px;line-height:1.4;transition:color .2s ease}
-.sym-legend li.is-hl{color:#fff}
-.sym-legend li i{flex:0 0 auto;display:block;width:13px;height:13px;margin-top:4px;border-radius:3px}
-@media(max-width:700px){.sym-pie-wrap{padding:20px 16px 22px}.sym-pie-body{gap:22px}#sym-pie{width:min(220px,70vw)}.sym-legend{flex-basis:100%}.sym-legend li{font-size:13.5px}}
-
-/* ===== Schedule page: centred gala block ===== */
-.schedule-tba .gala-callout{margin-top:26px;justify-content:center;text-align:center;padding:26px 28px}
-.schedule-tba .gala-christmas-content{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
-.schedule-tba .christmas-gala h3{margin:0;font-size:1.35rem;line-height:1.25}
-.schedule-tba .christmas-gala p{margin:0;max-width:640px;font-family:'Source Serif 4',serif;font-style:normal;font-size:1.02rem;line-height:1.55;color:rgba(255,255,255,.92)}
-
-/* ===== Rounded corners on every block, site-wide ===== */
-.awards-hero,.award-card,.date-card,.contact-card,.query-card,.fee-table-wrap,.schedule-tba,.gala-callout,.christmas-gala,
-.map-frame,.map-frame-overlay,.submission-card,.deadline-box,.venue-discount-note,.awards-note,.earlybird-note{border-radius:16px !important}
-.earlybird-note,.awards-note,.venue-discount-note{border-radius:12px !important}
-.date-card,.award-card,.schedule-tba,.fee-table-wrap,.submission-card,.deadline-box,.map-frame{overflow:hidden}
-.contact-icon,.submission-link,.nav-dropdown-menu,.back-to-top{border-radius:12px !important}
-.btn,.btn-primary,.btn-ghost,.btn-hero-cta,.btn-hero-register,.btn-hero-brochure,.nav-abstract,.nav-cta{border-radius:10px !important}
-.attraction-gallery--photo,.attraction-gallery--photo img{border-radius:0}
-@media(max-width:860px){.nav-dropdown-menu{border-radius:0 !important}}
-.cmt-acknowledgement{border-radius:12px !important}
-header.site-nav nav.links .nav-abstract,header.site-nav nav.links .nav-cta{border-radius:10px !important}
-html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.links .nav-cta{border-radius:10px !important}
+/* Other publication options: one block per journal, styled like the PJAA card */
+.journal-sub{margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16)}
+.journal-sub:first-of-type{margin-top:18px}
+.journal-partner-card .journal-sub h3{margin:0 0 10px;color:#fff;font-size:1.3rem;line-height:1.25}
+.journal-partner-card .journal-sub>p{margin:0 0 4px}
+.journal-partner-card .journal-intro{margin:10px 0 0;color:rgba(255,255,255,.88)}
+.journal-partner-card .journal-sub .journal-metrics{margin:14px 0 12px}
