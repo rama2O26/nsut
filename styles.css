@@ -124,3 +124,38 @@ section.awards{padding:26px 0 72px}
 .cmt-acknowledgement{border-radius:12px !important}
 header.site-nav nav.links .nav-abstract,header.site-nav nav.links .nav-cta{border-radius:10px !important}
 html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.links .nav-cta{border-radius:10px !important}
+
+
+/* ===== Awards page: alumni spotlight ===== */
+.awards .awards-hero{position:relative;overflow:hidden;grid-template-columns:auto 1fr;gap:26px;padding:38px 42px;margin-bottom:28px;background:radial-gradient(120% 140% at 85% -20%,rgba(242,215,125,.28) 0,rgba(242,215,125,0) 55%),linear-gradient(135deg,#14213d 0,#1f2e52 100%);border:1px solid var(--brass-light);box-shadow:0 22px 48px rgba(20,33,61,.28),0 0 0 6px rgba(176,141,69,.12)}
+.awards .awards-hero::after{content:"";position:absolute;inset:10px;border:1px solid rgba(212,185,106,.35);border-radius:10px;pointer-events:none}
+.awards .awards-hero-mark{width:78px;height:78px;font-size:36px;color:#14213d;background:linear-gradient(145deg,#f2d77d,#b08d45);border:0;box-shadow:0 0 0 6px rgba(242,215,125,.18),0 0 34px rgba(242,215,125,.45)}
+.awards .awards-kicker{margin-bottom:10px;font-size:12.5px;color:var(--brass-light)}
+.awards .awards-hero h2{margin:0 0 12px;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.12;background:linear-gradient(90deg,#fff6cf,#f2d77d 60%,#d4b96a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.awards .awards-hero p{margin:0;max-width:720px;font-size:17.5px;color:rgba(244,240,226,.88)}
+.awards .awards-hero-mark{animation:alumniGlow 3.6s ease-in-out infinite}
+@keyframes alumniGlow{0%,100%{box-shadow:0 0 0 6px rgba(242,215,125,.18),0 0 26px rgba(242,215,125,.35)}50%{box-shadow:0 0 0 10px rgba(242,215,125,.10),0 0 46px rgba(242,215,125,.6)}}
+
+.awards .award-card{border-color:rgba(176,141,69,.55);box-shadow:0 16px 36px rgba(20,33,61,.12)}
+.awards .award-named-chip{position:relative;overflow:hidden;border-color:var(--brass-light);box-shadow:0 10px 24px rgba(20,33,61,.22),inset 0 0 0 1px rgba(242,215,125,.12)}
+.awards .award-named-chip::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,246,207,.16),transparent);transform:skewX(-18deg);animation:alumniShine 6s ease-in-out infinite}
+@keyframes alumniShine{0%,60%{left:-60%}100%{left:140%}}
+.awards .award-named-chip-title{font-size:1.4rem}
+.awards .award-named-chip-sub{font-size:12.5px;color:#f2d77d}
+
+.alumni-thanks{position:relative;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-top:28px;padding:34px 38px;color:var(--vellum);background:radial-gradient(90% 160% at 0 0,rgba(242,215,125,.22) 0,rgba(242,215,125,0) 60%),linear-gradient(135deg,#14213d 0,#1f2e52 100%);border:1px solid var(--brass-light);box-shadow:0 20px 44px rgba(20,33,61,.24)}
+.alumni-thanks-mark{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;font-size:30px;color:#14213d;background:linear-gradient(145deg,#f2d77d,#b08d45);box-shadow:0 0 0 6px rgba(242,215,125,.16)}
+.alumni-thanks h3{margin:0 0 8px;font-size:clamp(1.35rem,2.4vw,1.8rem);color:#fff6cf}
+.alumni-thanks p{margin:0 0 16px;max-width:760px;font-size:16.5px;line-height:1.6;color:rgba(244,240,226,.88)}
+.alumni-thanks-link{display:inline-block;padding:11px 22px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:#14213d;background:linear-gradient(145deg,#f2d77d,#b08d45);transition:transform .2s ease,box-shadow .2s ease}
+.alumni-thanks-link:hover,.alumni-thanks-link:focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px rgba(242,215,125,.35)}
+.alumni-thanks{border-radius:16px}
+
+@media (max-width:720px){
+  .awards .awards-hero,.alumni-thanks{grid-template-columns:1fr;padding:26px 22px;gap:16px}
+  .awards .awards-hero-mark{width:60px;height:60px;font-size:28px}
+  .awards .award-named-chip-title{font-size:1.15rem !important}
+}
+@media (prefers-reduced-motion:reduce){
+  .awards .awards-hero-mark,.awards .award-named-chip::after{animation:none}
+}
