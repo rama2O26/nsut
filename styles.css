@@ -159,3 +159,19 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
 @media (prefers-reduced-motion:reduce){
   .awards .awards-hero-mark,.awards .award-named-chip::after{animation:none}
 }
+
+
+/* ===== Awards: linked award names + single-line names on mobile ===== */
+.awards .award-named-link{color:inherit;text-decoration:underline;text-decoration-color:rgba(242,215,125,.55);text-decoration-thickness:1px;text-underline-offset:4px;transition:color .2s ease,text-decoration-color .2s ease}
+.awards .award-named-link:hover,.awards .award-named-link:focus-visible{color:#f2d77d;text-decoration-color:#f2d77d}
+.awards .award-named-link:focus-visible{outline:2px solid #f2d77d;outline-offset:3px;border-radius:3px}
+@media (max-width:720px){
+  .awards .award-named-chip{gap:10px;padding:14px 12px}
+  .awards .award-named-chip-star{width:30px;height:30px;font-size:14px}
+  .awards .award-named-chip>div:last-child{min-width:0}
+  .awards .award-named-chip-title{white-space:nowrap;font-size:clamp(.72rem,3.8vw,1.05rem) !important}
+}
+@media (max-width:480px){
+  .awards .award-named-chip-star{display:none}
+  .awards .award-named-chip{padding:14px 14px}
+}
