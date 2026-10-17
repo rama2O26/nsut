@@ -184,3 +184,22 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
   .awards .award-named-list--pair .award-named-chip{min-height:84px}
   .awards .award-named-list--pair .award-named-chip-title{white-space:nowrap;font-size:clamp(1.05rem,1.9vw,1.3rem) !important}
 }
+
+
+/* ===== Registration fee tables: fix merged column on desktop, stacked cards on mobile ===== */
+.fee-table tbody td.attendee-repeat{display:none}
+@media (max-width:720px){
+  table.fee-table{min-width:0}
+  .fee-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .fee-table,.fee-table tbody,.fee-table tr,.fee-table td,.fee-table tbody td.attendee-repeat{display:block;width:100%}
+  .fee-table tbody tr{border-top:1px solid var(--rule);padding:4px 0 6px}
+  .fee-table tbody tr:first-child{border-top:0}
+  .fee-table tbody td{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:0;text-align:right;padding:9px 18px}
+  .fee-table tbody td::before{content:attr(data-label);flex:0 0 46%;min-width:0;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--paper-text-soft)}
+  .fee-table tbody td.sub{display:block;text-align:left;background:var(--ink);color:var(--brass-light);font-size:13px;padding:11px 18px;margin:-4px 0 4px}
+  .fee-table tbody td.sub::before{display:none}
+  .fee-table tbody td.attendee-fee{background:none;border-left:0;border-right:0;font-weight:400}
+  .fee-table tbody td.attendee-fee,.fee-table tbody td.attendee-repeat{display:block;text-align:left;padding:12px 18px}
+  .fee-table tbody td.attendee-fee::before,.fee-table tbody td.attendee-repeat::before{display:block;margin-bottom:5px}
+  .fee-table tbody td.amount{font-size:15.5px}
+}
