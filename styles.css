@@ -203,3 +203,18 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
   .fee-table tbody td.attendee-fee::before,.fee-table tbody td.attendee-repeat::before{display:block;margin-bottom:5px}
   .fee-table tbody td.amount{font-size:15.5px}
 }
+
+/* Awards: common eligibility block */
+.awards .award-eligibility{position:relative;overflow:hidden;margin-top:22px;padding:28px 32px 22px;background:var(--paper,#f7f4ea);border:1px solid rgba(176,141,69,.55);box-shadow:0 16px 36px rgba(20,33,61,.12)}
+.awards .award-eligibility::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--brass)}
+.awards .award-eligibility-head{margin-bottom:14px}
+.awards .award-eligibility-head h3{margin:0;font-size:1.45rem;line-height:1.15;color:var(--ink)}
+.awards .award-eligibility-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.awards .award-eligibility-list li{display:flex;align-items:flex-start;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:16px;line-height:1.55;color:var(--paper-text)}
+.awards .award-eligibility-list li:last-child{border-bottom:0}
+.awards .award-elig-no{flex:0 0 auto;display:grid;place-items:center;width:30px;height:30px;margin-top:1px;border-radius:50%;background:var(--ink);border:1px solid var(--brass);color:var(--brass-light);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700}
+@media(max-width:760px){.awards .award-eligibility{padding:22px 18px 14px}.awards .award-eligibility-list li{font-size:15px;gap:12px}}
+
+/* Abstract page: journal link sits on a light background, so override the pale-yellow dark-section colour */
+.submission-note .journal-link{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:3px}
+.submission-note .journal-link:hover{color:var(--brass)}
