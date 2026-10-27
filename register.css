@@ -296,3 +296,30 @@ body.page-register .back-to-top{z-index:70}
 /* Global styles set overflow-x:hidden on html/body, which disables position:sticky.
    `clip` still prevents sideways scroll but keeps the in-page nav sticky. */
 html:has(body.page-register),body.page-register{overflow-x:clip !important;overflow-y:visible !important}
+
+/* ---------- Combined fee tables: Early Bird + Regular sub-columns --------- */
+body.page-register .fee-table-dual{min-width:1040px}
+body.page-register .fee-table-dual th,
+body.page-register .fee-table-dual td{padding:18px 14px}
+body.page-register .fee-table-dual thead th{padding:16px 14px;text-align:center;vertical-align:middle}
+body.page-register .fee-table-dual thead th:first-child{text-align:left;padding-left:24px}
+body.page-register .fee-table-dual tbody td.sub{padding-left:24px}
+body.page-register .fee-table-dual tbody td.amount{text-align:center;font-size:17px}
+body.page-register .fee-table-dual thead tr:nth-child(2) th{
+  background:var(--ink-2);border-top:1px solid rgba(212,185,106,.25);padding:10px 8px;
+  font-size:10.5px;letter-spacing:.09em;color:var(--brass-light);
+}
+body.page-register .fee-table-dual thead tr:nth-child(2) th.fee-sub-reg{color:rgba(243,239,226,.85)}
+body.page-register .fee-table-dual .fee-when{display:block;margin-top:3px;font-size:9.5px;letter-spacing:.06em;opacity:.7;text-transform:none}
+body.page-register .fee-table-dual thead tr:first-child th[colspan]{border-left:1px solid rgba(212,185,106,.25)}
+body.page-register .fee-table-dual thead tr:nth-child(2) th.fee-sub:not(.fee-sub-reg){border-left:1px solid rgba(212,185,106,.25)}
+body.page-register .fee-table-dual tbody td.amount:not(.fee-reg){border-left:1px solid #ece6d2}
+body.page-register .fee-table-dual tbody td.amount.fee-reg{background:rgba(20,33,61,.035);color:var(--paper-text-soft)}
+body.page-register .fee-table-dual tbody td.attendee-fee{border-left:1px solid var(--rule);border-right:0}
+body.page-register .fee-table-dual tbody td.attendee-fee.fee-reg{border-left:0;border-right:1px solid var(--rule)}
+@media(max-width:720px){
+  body.page-register .fee-table-dual{min-width:0}
+  body.page-register .fee-table-dual tbody td.amount,
+  body.page-register .fee-table-dual tbody td.amount.fee-reg{background:none;border-left:0;border-right:0;text-align:right;color:var(--ink)}
+  body.page-register .fee-table-dual th,body.page-register .fee-table-dual td{padding:12px 18px}
+}

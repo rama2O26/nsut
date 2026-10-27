@@ -2,7 +2,7 @@
   /* Early-bird countdown: shown only while the deadline is still ahead. */
   var out=document.getElementById('rgDaysLeft');
   if(out){
-    var deadline=new Date('2026-11-15T23:59:59');
+    var deadline=new Date('2026-11-21T23:59:59');
     var days=Math.ceil((deadline-new Date())/86400000);
     if(days>0){
       out.querySelector('b').textContent=days;
