@@ -227,3 +227,14 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
 /* Extended abstract deadline: old date struck through, new date beside it */
 .date-old{text-decoration:line-through;text-decoration-thickness:2px;opacity:.6;margin-right:.35em}
 .date-new{font-weight:700}
+
+/* DRDO logo: sits between the RAM&A and NSUT logos in the fixed top banner */
+.tb-logo-drdo{display:block;height:74px;width:auto;flex-shrink:0}
+@media(max-width:860px){
+  .tb-logo-drdo{display:block !important;height:auto !important;width:clamp(32px,10vw,42px) !important;max-width:42px !important;flex:0 0 auto !important}
+  body .top-banner-inner{grid-template-columns:max-content 1px minmax(0,1fr) !important}
+}
+@media(max-width:360px){
+  .tb-logo-drdo{width:30px !important;max-width:30px !important}
+  body .top-banner-inner{grid-template-columns:max-content 1px minmax(0,1fr) !important}
+}
