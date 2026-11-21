@@ -238,3 +238,7 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
   .tb-logo-drdo{width:30px !important;max-width:30px !important}
   body .top-banner-inner{grid-template-columns:max-content 1px minmax(0,1fr) !important}
 }
+
+/* Keep each date in the deadline box on one line */
+.deadline-date .date-old,.deadline-date .date-new{display:block;white-space:nowrap}
+.deadline-date .date-old{margin-right:0;font-size:.72em;line-height:1.35}
