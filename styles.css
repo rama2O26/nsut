@@ -254,3 +254,24 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
 
 /* ANRF logo: cyan ring around the circumference for visibility */
 .tb-logo-anrf{border-radius:50%;box-shadow:0 0 0 2.5px #00bcd4;aspect-ratio:1/1;object-fit:cover}
+
+/* "Supported by" strip: DRDO + ANRF, directly under the home page hero */
+.supported-by{position:relative;padding:34px 0;background:#faf7ec;border-top:3px solid var(--brass);border-bottom:1px solid var(--rule)}
+.supported-by-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.supported-by-label .eyebrow{margin:0;white-space:nowrap}
+.supported-by-logos{display:flex;align-items:center;gap:36px;flex-wrap:wrap;justify-content:center}
+.sponsor-item{display:flex;align-items:center;gap:16px;min-width:0}
+.sponsor-logo{display:block;width:92px;height:92px;flex:0 0 auto;object-fit:contain}
+.sponsor-logo-anrf{border-radius:50%;box-shadow:0 0 0 3px #00bcd4}
+.sponsor-text{display:flex;flex-direction:column;gap:3px;max-width:250px}
+.sponsor-text strong{font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:.12em;color:var(--ink)}
+.sponsor-text span{font-size:14px;line-height:1.4;color:var(--paper-text-soft)}
+.sponsor-divider{width:1px;align-self:stretch;min-height:70px;background:var(--rule)}
+@media(max-width:860px){
+  .supported-by{padding:26px 0}
+  .supported-by-inner{flex-direction:column;gap:18px}
+  .supported-by-logos{flex-direction:column;gap:20px;align-items:flex-start}
+  .sponsor-divider{display:none}
+  .sponsor-logo{width:72px;height:72px}
+  .sponsor-text{max-width:none}
+}
