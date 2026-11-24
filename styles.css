@@ -242,3 +242,15 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
 /* Keep each date in the deadline box on one line */
 .deadline-date .date-old,.deadline-date .date-new{display:block;white-space:nowrap}
 .deadline-date .date-old{margin-right:0;font-size:.72em;line-height:1.35}
+
+/* ANRF logo: beside the DRDO logo in the fixed top banner */
+.tb-logo-anrf{display:block;height:74px;width:auto;flex-shrink:0}
+@media(max-width:860px){
+  .tb-logo-anrf{display:block !important;height:auto !important;width:clamp(32px,10vw,42px) !important;max-width:42px !important;flex:0 0 auto !important}
+}
+@media(max-width:360px){
+  .tb-logo-anrf{width:30px !important;max-width:30px !important}
+}
+
+/* ANRF logo: cyan ring around the circumference for visibility */
+.tb-logo-anrf{border-radius:50%;box-shadow:0 0 0 2.5px #00bcd4;aspect-ratio:1/1;object-fit:cover}
