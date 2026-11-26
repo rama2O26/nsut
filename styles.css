@@ -275,3 +275,15 @@ html body header.site-nav nav.links .nav-abstract,html body header.site-nav nav.
   .sponsor-logo{width:72px;height:72px}
   .sponsor-text{max-width:none}
 }
+
+/* ===== Mobile/tablet banner: four equal-size logos in one row, university name beneath ===== */
+@media(max-width:860px){
+  body .top-banner .top-banner-inner{display:flex !important;flex-direction:column !important;align-items:center !important;gap:8px !important;padding:10px 12px 10px !important}
+  body .top-banner .top-banner-logos{--tbl:min(calc((100vw - 24px - 24px) / 4),104px);display:grid !important;grid-template-columns:repeat(4,var(--tbl)) !important;gap:8px !important;justify-content:center !important;align-items:center !important;width:auto !important;max-width:100% !important;flex:0 0 auto !important}
+  body .top-banner .top-banner-logos img{display:block !important;width:var(--tbl) !important;height:var(--tbl) !important;max-width:none !important;max-height:none !important;object-fit:contain !important;aspect-ratio:1/1 !important;margin:0 !important;flex:none !important}
+  body .top-banner .top-banner-divider{display:none !important}
+  body .top-banner .top-banner-text{text-align:center !important;width:100% !important;max-width:100% !important}
+  body .top-banner .tb-uni-name{font-size:clamp(14px,4.3vw,19px) !important;line-height:1.1 !important;white-space:normal !important}
+  body .top-banner .tb-dept{font-size:clamp(9px,2.6vw,11px) !important;margin-top:2px !important}
+  body .top-banner .tb-logo-anrf{box-shadow:0 0 0 2px #00bcd4 !important;border-radius:50% !important;width:calc(var(--tbl) - 4px) !important;height:calc(var(--tbl) - 4px) !important;margin:2px !important}
+}
